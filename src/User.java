@@ -39,8 +39,8 @@ public class User {
         
     }
     
-    public static void addUser(User newUser, javax.swing.JFrame gui) {
-        ArrayList<User> users = new ArrayList<User>();
+    public static void addUserToTxt(User newUser, javax.swing.JFrame gui) {
+        ArrayList<User> users = new ArrayList<>();
         try {
             //Initialize File Reader
             BufferedReader br = new BufferedReader(new FileReader("users.txt"));
@@ -145,7 +145,7 @@ public class User {
             return null;
         } else {
             User newUser = new User(usernameInput, passwordInput);
-            User.addUser(newUser, gui);
+            User.addUserToTxt(newUser, gui);
             return newUser;
         }
         

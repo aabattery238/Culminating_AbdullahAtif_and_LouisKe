@@ -21,7 +21,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
     public HomeScreenGUI() {
         initComponents();
         JOptionPane.showMessageDialog(this, "An Error Occured", "ERROR", JOptionPane.ERROR_MESSAGE);
-        return;
+        System.exit(0);
     }
     
     public HomeScreenGUI(User loggedInUser) {
