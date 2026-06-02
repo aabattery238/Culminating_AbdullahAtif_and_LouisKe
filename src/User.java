@@ -34,7 +34,7 @@ public class User {
         this.username = username;
         this.password = password;
         LocalDateTime time = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyMMddHssSSS");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyDDHssSS");
         this.userID = time.format(formatter);
         
     }
@@ -45,30 +45,36 @@ public class User {
             //Initialize File Reader
             BufferedReader br = new BufferedReader(new FileReader("users.txt"));
             //Initialize line String
-            String line = br.readLine(); //Skip first line
+            String line = br.readLine(); 
+            line = br.readLine();//Skip first line
             //Loop through file lines
             while (line != null) {
-                line = br.readLine();
                 String[] userProp = line.split(",", 3);
                 users.add(new User(userProp[0], userProp[1], userProp[2]));
+                line = br.readLine();
 	    }
             br.close();
         } catch (Exception e) {
+            System.out.println(e+" 1");
             JOptionPane.showMessageDialog(gui, "users.txt Not Found", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
         users.add(newUser);
         users.sort((u1, u2) -> u1.getUserID().compareTo(u2.getUserID()));
+        System.out.println(users);
         try {
-            FileWriter fw = new FileWriter("users.txt", true);
+            FileWriter fw = new FileWriter("users.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write("userID,username,password");
             for (User user : users) {
                 bw.newLine();
+                System.out.println(user.getUserID() +"," +user.getUsername() +"," +user.getPassword());
                 bw.write(user.getUserID() +"," +user.getUsername() +"," +user.getPassword());
             }
+            bw.close();
             
         } catch (Exception e) {
+            System.out.println(e +" 2");
             JOptionPane.showMessageDialog(gui, "users.txt Not Found", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -82,17 +88,19 @@ public class User {
             //Initialize File Reader
             BufferedReader br = new BufferedReader(new FileReader("users.txt"));
             //Initialize line String
-            String line = br.readLine(); //Skip first line
+            String line = br.readLine();
+            line = br.readLine(); //Skip first line
             //Loop through file lines
             while (line != null) {
-                line = br.readLine();
                 if (line.split(",")[1].equals(userInput)) {
                     return true;
                 }
+                line = br.readLine();
 	    }
             br.close();
             return false;
         } catch (Exception e) {
+            System.out.println(e+" 3");
             JOptionPane.showMessageDialog(gui, "users.txt Not Found", "ERROR", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -114,6 +122,7 @@ public class User {
             br.close();
             return null;
         } catch (Exception e) {
+            System.out.println(e+" 4");
             JOptionPane.showMessageDialog(gui, "users.txt Not Found", "ERROR", JOptionPane.ERROR_MESSAGE);
             return null;
         }

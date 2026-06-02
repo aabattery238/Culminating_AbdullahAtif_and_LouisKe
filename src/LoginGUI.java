@@ -233,6 +233,7 @@ public class LoginGUI extends javax.swing.JFrame {
             return;
         }
         User.signUp(usernameInput, passwordInput, this);
+        jTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     /**
