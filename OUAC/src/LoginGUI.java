@@ -122,7 +122,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jTabbedPane.addTab("Login", jpnLogin);
 
         lblSignUpTitle.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
-        lblSignUpTitle.setText("Sign Up!");
+        lblSignUpTitle.setText("Sign Up");
 
         txfSignUpUsername.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
 
@@ -151,7 +151,7 @@ public class LoginGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnSignUp)
                         .addGap(51, 51, 51)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnSignUpLayout.createSequentialGroup()
                 .addContainerGap(133, Short.MAX_VALUE)
                 .addGroup(jpnSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
