@@ -1,3 +1,0 @@
-userID,username,password
-26134915227,ab123,ab321
-2615380018,louiske,123
