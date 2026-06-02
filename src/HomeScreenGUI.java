@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,8 +17,16 @@ public class HomeScreenGUI extends javax.swing.JFrame {
     /**
      * Creates new form HomeScreenGUI
      */
+    User currentUser;
     public HomeScreenGUI() {
         initComponents();
+        JOptionPane.showMessageDialog(this, "An Error Occured", "ERROR", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    public HomeScreenGUI(User loggedInUser) {
+        initComponents();
+        currentUser = loggedInUser;
     }
 
     /**
@@ -33,11 +44,11 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         pack();
