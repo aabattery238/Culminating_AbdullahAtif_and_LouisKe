@@ -41,12 +41,20 @@
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f0" green="f3" red="f4" type="rgb"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jpnLogin">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f0" green="f3" red="f4" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Login">
@@ -67,7 +75,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="139" max="32767" attributes="0"/>
+                      <EmptySpace pref="140" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblLoginPassword" min="-2" max="-2" attributes="0"/>
@@ -76,9 +84,9 @@
                           <Component id="lblLoginUsername" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txfLoginPassword" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="txfLoginUsername" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txfLoginUsername" pref="150" max="32767" attributes="0"/>
+                          <Component id="txfLoginPassword" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
@@ -95,13 +103,13 @@
                           <Component id="lblLoginUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txfLoginPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblLoginPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblLoginPassword" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfLoginPassword" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                      <EmptySpace pref="101" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -125,11 +133,6 @@
                 <Property name="text" type="java.lang.String" value="Username"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfLoginPassword">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txfLoginPassword.setVisible(false);"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblLoginPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
@@ -145,10 +148,20 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnLogin.setOpaque(true);&#xa;btnLogin.setContentAreaFilled(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="txfLoginPassword">
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jpnSignUp">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f0" green="f3" red="f4" type="rgb"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Sign Up">
@@ -169,7 +182,7 @@
                       <EmptySpace pref="221" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="139" max="32767" attributes="0"/>
+                      <EmptySpace pref="140" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblSignUpPassword" min="-2" max="-2" attributes="0"/>
@@ -178,9 +191,9 @@
                           <Component id="lblSignUpUsername" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txfSignUpPassword" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="txfSignUpUsername" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txfSignUpUsername" pref="150" max="32767" attributes="0"/>
+                          <Component id="txfSignUpPassword" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
@@ -198,8 +211,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txfSignUpPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSignUpPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfSignUpPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="btnSignUp" min="-2" max="-2" attributes="0"/>
@@ -224,8 +237,6 @@
                 <Property name="text" type="java.lang.String" value="Username"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfSignUpPassword">
-            </Component>
             <Component class="javax.swing.JLabel" name="lblSignUpPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
@@ -238,6 +249,8 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignUpActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="txfSignUpPassword">
             </Component>
           </SubComponents>
         </Container>

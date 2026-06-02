@@ -34,20 +34,23 @@ public class LoginGUI extends javax.swing.JFrame {
         lblLoginTitle = new javax.swing.JLabel();
         txfLoginUsername = new javax.swing.JTextField();
         lblLoginUsername = new javax.swing.JLabel();
-        txfLoginPassword = new javax.swing.JTextField();
         lblLoginPassword = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
+        txfLoginPassword = new javax.swing.JPasswordField();
         jpnSignUp = new javax.swing.JPanel();
         lblSignUpTitle = new javax.swing.JLabel();
         txfSignUpUsername = new javax.swing.JTextField();
         lblSignUpUsername = new javax.swing.JLabel();
-        txfSignUpPassword = new javax.swing.JTextField();
         lblSignUpPassword = new javax.swing.JLabel();
         btnSignUp = new javax.swing.JButton();
+        txfSignUpPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane.setForeground(new java.awt.Color(244, 243, 240));
         jTabbedPane.setToolTipText("");
+
+        jpnLogin.setForeground(new java.awt.Color(244, 243, 240));
 
         lblLoginTitle.setFont(new java.awt.Font("SF Pro Display", 1, 36)); // NOI18N
         lblLoginTitle.setText("Login");
@@ -76,16 +79,16 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(lblLoginTitle))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnLoginLayout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(140, Short.MAX_VALUE)
                 .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jpnLoginLayout.createSequentialGroup()
                         .addComponent(lblLoginPassword)
                         .addGap(1, 1, 1))
                     .addComponent(lblLoginUsername))
                 .addGap(129, 129, 129)
-                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txfLoginUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txfLoginPassword))
                 .addGap(103, 103, 103))
         );
         jpnLoginLayout.setVerticalGroup(
@@ -98,18 +101,21 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(txfLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLoginUsername))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLoginPassword))
-                .addGap(48, 48, 48)
+                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLoginPassword)
+                    .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
                 .addComponent(btnLogin)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        txfLoginPassword.setVisible(false);
         lblLoginPassword.setVisible(false);
+        btnLogin.setOpaque(true);
+        btnLogin.setContentAreaFilled(false);
 
         jTabbedPane.addTab("Login", jpnLogin);
+
+        jpnSignUp.setForeground(new java.awt.Color(244, 243, 240));
 
         lblSignUpTitle.setFont(new java.awt.Font("SF Pro Display", 1, 36)); // NOI18N
         lblSignUpTitle.setText("Sign Up!");
@@ -132,16 +138,16 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(lblSignUpTitle))
                 .addContainerGap(221, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnSignUpLayout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(140, Short.MAX_VALUE)
                 .addGroup(jpnSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jpnSignUpLayout.createSequentialGroup()
                         .addComponent(lblSignUpPassword)
                         .addGap(1, 1, 1))
                     .addComponent(lblSignUpUsername))
                 .addGap(129, 129, 129)
-                .addGroup(jpnSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txfSignUpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfSignUpUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpnSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txfSignUpUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txfSignUpPassword))
                 .addGap(103, 103, 103))
         );
         jpnSignUpLayout.setVerticalGroup(
@@ -155,8 +161,8 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(lblSignUpUsername))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpnSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfSignUpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSignUpPassword))
+                    .addComponent(lblSignUpPassword)
+                    .addComponent(txfSignUpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnSignUp)
                 .addContainerGap(96, Short.MAX_VALUE))
@@ -273,9 +279,9 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignUpPassword;
     private javax.swing.JLabel lblSignUpTitle;
     private javax.swing.JLabel lblSignUpUsername;
-    private javax.swing.JTextField txfLoginPassword;
+    private javax.swing.JPasswordField txfLoginPassword;
     private javax.swing.JTextField txfLoginUsername;
-    private javax.swing.JTextField txfSignUpPassword;
+    private javax.swing.JPasswordField txfSignUpPassword;
     private javax.swing.JTextField txfSignUpUsername;
     // End of variables declaration//GEN-END:variables
 }

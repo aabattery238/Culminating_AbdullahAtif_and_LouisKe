@@ -163,7 +163,9 @@ public class User {
         return password;
     }
     
-    
+    private class Application {
+        
+    }
     
     
 
