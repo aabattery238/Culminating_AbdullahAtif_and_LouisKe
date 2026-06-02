@@ -163,8 +163,26 @@ public class User {
         return password;
     }
     
-    
-    
+    private class Application {
+        private String programName;
+        private String universityName;
+        private static ArrayList<Application> applications = new ArrayList<Application>();
+
+        public Application(String programName, String universityName) {
+            this.programName = programName;
+            this.universityName = universityName;
+        }
+        
+        public static void addApplication(Application app) {
+            applications.add(app);
+        }
+        
+        public static void applicationsOutput() {
+            
+            System.out.println(applications.get(0).programName);
+        }
+     
+    }
     
 
     
