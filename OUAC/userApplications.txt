@@ -1,0 +1,2 @@
+userID
+programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate
