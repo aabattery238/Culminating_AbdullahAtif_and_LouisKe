@@ -182,7 +182,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addGroup(pnlSignUpMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSignUpUsername)
                     .addComponent(lblSignUpPassword))
-                .addGap(18, 118, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(pnlSignUpMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txfSignUpPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txfSignUpUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,7 +192,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addGroup(pnlSignUpMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSignUpTitle)
                     .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         pnlSignUpMainInterfaceLayout.setVerticalGroup(
             pnlSignUpMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,8 +330,8 @@ public class LoginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnSignUp;
+    private components.RoundedButton btnLogin;
+    private components.RoundedButton btnSignUp;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jpnLogin;
     private javax.swing.JPanel jpnSignUp;
@@ -341,11 +341,11 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignUpPassword;
     private javax.swing.JLabel lblSignUpTitle;
     private javax.swing.JLabel lblSignUpUsername;
-    private javax.swing.JPanel pnlMainInterface;
-    private javax.swing.JPanel pnlSignUpMainInterface;
-    private javax.swing.JTextField txfLoginPassword;
-    private javax.swing.JTextField txfLoginUsername;
-    private javax.swing.JTextField txfSignUpPassword;
-    private javax.swing.JTextField txfSignUpUsername;
+    private components.RoundedPanel pnlMainInterface;
+    private components.RoundedPanel pnlSignUpMainInterface;
+    private components.RoundedTextField txfLoginPassword;
+    private components.RoundedTextField txfLoginUsername;
+    private components.RoundedTextField txfSignUpPassword;
+    private components.RoundedTextField txfSignUpUsername;
     // End of variables declaration//GEN-END:variables
 }

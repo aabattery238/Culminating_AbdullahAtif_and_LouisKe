@@ -271,7 +271,7 @@
                               <Component id="lblSignUpUsername" min="-2" max="-2" attributes="0"/>
                               <Component id="lblSignUpPassword" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" pref="118" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txfSignUpPassword" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                               <Component id="txfSignUpUsername" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
@@ -284,7 +284,7 @@
                               <Component id="lblSignUpTitle" min="-2" max="-2" attributes="0"/>
                               <Component id="btnSignUp" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="203" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
