@@ -24,6 +24,7 @@ public class User {
     private String username; 
     private String password;
     private String userID;
+    private ArrayList<University> universitiesApplied = new ArrayList<University>();
 
     public User(String userID, String username, String password) {
         this.username = username;
@@ -36,29 +37,10 @@ public class User {
         LocalDateTime time = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyDDHssSS");
         this.userID = time.format(formatter);
-        
     }
     
     public static void addUser(User newUser, javax.swing.JFrame gui) {
-        ArrayList<User> users = new ArrayList<User>();
-        try {
-            //Initialize File Reader
-            BufferedReader br = new BufferedReader(new FileReader("users.txt"));
-            //Initialize line String
-            String line = br.readLine(); 
-            line = br.readLine();//Skip first line
-            //Loop through file lines
-            while (line != null) {
-                String[] userProp = line.split(",", 3);
-                users.add(new User(userProp[0], userProp[1], userProp[2]));
-                line = br.readLine();
-	    }
-            br.close();
-        } catch (Exception e) {
-            System.out.println(e+" 1");
-            JOptionPane.showMessageDialog(gui, "users.txt Not Found", "ERROR", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        ArrayList<User> users = getUsers();
         users.add(newUser);
         users.sort((u1, u2) -> u1.getUserID().compareTo(u2.getUserID()));
         System.out.println(users);
@@ -78,8 +60,28 @@ public class User {
             JOptionPane.showMessageDialog(gui, "users.txt Not Found", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        
+    }
+    
+    public static ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<User>();
+        try {
+            //Initialize File Reader
+            BufferedReader br = new BufferedReader(new FileReader("users.txt"));
+            //Initialize line String
+            String line = br.readLine(); 
+            line = br.readLine();//Skip first line
+            //Loop through file lines
+            while (line != null) {
+                String[] userProp = line.split(",", 3);
+                users.add(new User(userProp[0], userProp[1], userProp[2]));
+                line = br.readLine();
+	    }
+            br.close();
+            return users;
+        } catch (Exception e) {
+            System.out.println(e+" 1");
+            return null;
+        }
     }
     
     
@@ -155,23 +157,46 @@ public class User {
         return username;
     }
 
-    private String getUserID() {
+    public String getUserID() {
         return userID;
     }
 
     private String getPassword() {
         return password;
+    }  
+    
+    private University booleanSearchUniversity(String searchUniversity) {
+        //initialize leftmost and right most indexes
+        int left = 0;
+        int right = universitiesApplied.size() -1;
+        //repeat loop until one is selected
+        
+        while (left <= right) {
+            //get middle value
+            int mid = left + (right - left) / 2;
+            System.out.println(mid);
+            //if middle value is the item return
+            if (universitiesApplied.get(mid).getUniversityName().equals(searchUniversity)) {
+                 return universitiesApplied.get(mid);
+            }
+            //compare title if less than 0 choose right half
+            if (universitiesApplied.get(mid).getUniversityName().compareTo(searchUniversity) < 0) {
+                left = mid + 1;
+            } else { //choose left half
+                right = mid - 1;
+            }
+            
+        }
+         //display error if not found
+        return null;
+            
     }
     
-    private class Application {
-        private String programName;
-        private University university;
-        private boolean suppAppRequired;
-        private DateTime suppAppDate;
-        private boolean interviewRequired;
-        private DateTime interviewDate;
-        private static ArrayList<Application> applications = new ArrayList<Application>();
-        
-        
-    }    
+    public void generateApplication(String selectedUniversity, String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate) {
+        universitiesApplied.add(new University("Waterloo","Blah","blah","Blah"));
+        University universityFound = booleanSearchUniversity(selectedUniversity);
+        if (universityFound != null) {
+           universityFound.genApplication(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate, this);
+        }
+    }
 }

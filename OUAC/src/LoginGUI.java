@@ -76,6 +76,15 @@ public class LoginGUI extends javax.swing.JFrame {
         jpnLogin.setLayout(jpnLoginLayout);
         jpnLoginLayout.setHorizontalGroup(
             jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnLoginLayout.createSequentialGroup()
+                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnLoginLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(lblLoginTitle))
+                    .addGroup(jpnLoginLayout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnLoginLayout.createSequentialGroup()
                 .addContainerGap(133, Short.MAX_VALUE)
                 .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -88,15 +97,6 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txfLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(103, 103, 103))
-            .addGroup(jpnLoginLayout.createSequentialGroup()
-                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnLoginLayout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(lblLoginTitle))
-                    .addGroup(jpnLoginLayout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnLoginLayout.setVerticalGroup(
             jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
