@@ -18,6 +18,8 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     public LoginGUI() {
         initComponents();
+        lblLoginPassword.setVisible(false);
+    txfLoginPassword.setVisible(false);
     }
 
     /**
@@ -34,9 +36,9 @@ public class LoginGUI extends javax.swing.JFrame {
         lblLoginTitle = new javax.swing.JLabel();
         txfLoginUsername = new javax.swing.JTextField();
         lblLoginUsername = new javax.swing.JLabel();
-        txfLoginPassword = new javax.swing.JTextField();
         lblLoginPassword = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
+        txfLoginPassword = new javax.swing.JPasswordField();
         jpnSignUp = new javax.swing.JPanel();
         lblSignUpTitle = new javax.swing.JLabel();
         txfSignUpUsername = new javax.swing.JTextField();
@@ -62,8 +64,6 @@ public class LoginGUI extends javax.swing.JFrame {
 
         lblLoginUsername.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         lblLoginUsername.setText("Username");
-
-        txfLoginPassword.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
 
         lblLoginPassword.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 13)); // NOI18N
         lblLoginPassword.setText("Password");
@@ -93,9 +93,9 @@ public class LoginGUI extends javax.swing.JFrame {
                         .addGap(1, 1, 1))
                     .addComponent(lblLoginUsername))
                 .addGap(129, 129, 129)
-                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txfLoginUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txfLoginPassword))
                 .addGap(103, 103, 103))
         );
         jpnLoginLayout.setVerticalGroup(
@@ -108,16 +108,16 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(txfLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLoginUsername))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLoginPassword))
+                .addGroup(jpnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLoginPassword)
+                    .addComponent(txfLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
-        txfLoginPassword.setVisible(false);
         lblLoginPassword.setVisible(false);
+        txfLoginPassword.setVisible(false);
 
         jTabbedPane.addTab("Login", jpnLogin);
 
@@ -294,7 +294,7 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignUpPassword;
     private javax.swing.JLabel lblSignUpTitle;
     private javax.swing.JLabel lblSignUpUsername;
-    private javax.swing.JTextField txfLoginPassword;
+    public javax.swing.JPasswordField txfLoginPassword;
     private javax.swing.JTextField txfLoginUsername;
     private javax.swing.JTextField txfSignUpPassword;
     private javax.swing.JTextField txfSignUpUsername;

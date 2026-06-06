@@ -1,6 +1,5 @@
 
 import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -101,6 +100,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         );
 
         pnlMainInterface.setBackground(new java.awt.Color(244, 243, 240));
+        pnlMainInterface.setOpaque(false);
 
         lblInstructions.setBackground(new java.awt.Color(244, 243, 240));
         lblInstructions.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
@@ -110,22 +110,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
         pnlRedirect.setForeground(new java.awt.Color(244, 243, 240));
         pnlRedirect.setToolTipText("");
-
-        final java.awt.Color pnlRedirectOrigBg = pnlRedirect.getBackground();
-        final java.awt.Color pnlRedirectHoverBg = new java.awt.Color(57, 62, 65);
-        pnlRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlRedirect.setBackground(pnlRedirectHoverBg);
-                pnlRedirect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlRedirect.setBackground(pnlRedirectOrigBg);
-                pnlRedirect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-            }
-        });
+        pnlRedirect.setOpaque(false);
 
         lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
@@ -167,7 +152,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
                 .addComponent(lblInstructions)
                 .addGap(18, 18, 18)
                 .addComponent(pnlRedirect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -183,9 +168,9 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(pnlMainInterface, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
