@@ -8,6 +8,27 @@ public class RoundedPanel extends JPanel {
     private int radius = 67;
     private Shape shape;
     private boolean autoRadius = false;
+    private boolean hoverEnabled = false;
+    private Color hoverBackground;
+    private Color normalBackground;
+    private final java.awt.event.MouseAdapter hoverMouseAdapter = new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseEntered(java.awt.event.MouseEvent e) {
+            if (hoverEnabled && hoverBackground != null) {
+                normalBackground = getBackground();
+                setBackground(hoverBackground);
+                repaint();
+            }
+        }
+
+        @Override
+        public void mouseExited(java.awt.event.MouseEvent e) {
+            if (hoverEnabled && normalBackground != null) {
+                setBackground(normalBackground);
+                repaint();
+            }
+        }
+    };
     private static final int DEFAULT_RADIUS = 67;
 
     public RoundedPanel() {
@@ -28,6 +49,7 @@ public class RoundedPanel extends JPanel {
                 if (autoRadius) repaint();
             }
         });
+        addMouseListener(hoverMouseAdapter);
     }
 
     public int getRadius() {
@@ -54,6 +76,44 @@ public class RoundedPanel extends JPanel {
         revalidate();
         repaint();
         firePropertyChange("autoRadius", old, autoRadius);
+    }
+
+    public boolean isHoverEnabled() {
+        return hoverEnabled;
+    }
+
+    public void setHoverEnabled(boolean hoverEnabled) {
+        boolean old = this.hoverEnabled;
+        this.hoverEnabled = hoverEnabled;
+        updateHoverListeners();
+        firePropertyChange("hoverEnabled", old, hoverEnabled);
+    }
+
+    public Color getHoverBackground() {
+        return hoverBackground;
+    }
+
+    public void setHoverBackground(Color hoverBackground) {
+        Color old = this.hoverBackground;
+        this.hoverBackground = hoverBackground;
+        firePropertyChange("hoverBackground", old, hoverBackground);
+    }
+
+    @Override
+    protected void addImpl(Component comp, Object constraints, int index) {
+        super.addImpl(comp, constraints, index);
+        if (hoverEnabled) {
+            comp.addMouseListener(hoverMouseAdapter);
+        }
+    }
+
+    private void updateHoverListeners() {
+        for (Component child : getComponents()) {
+            child.removeMouseListener(hoverMouseAdapter);
+            if (hoverEnabled) {
+                child.addMouseListener(hoverMouseAdapter);
+            }
+        }
     }
 
     @Override

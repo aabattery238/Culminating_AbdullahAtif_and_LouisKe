@@ -111,21 +111,8 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         pnlRedirect.setForeground(new java.awt.Color(244, 243, 240));
         pnlRedirect.setToolTipText("");
 
-        final java.awt.Color pnlRedirectOrigBg = pnlRedirect.getBackground();
-        final java.awt.Color pnlRedirectHoverBg = new java.awt.Color(57, 62, 65);
-        pnlRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlRedirect.setBackground(pnlRedirectHoverBg);
-                pnlRedirect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlRedirect.setBackground(pnlRedirectOrigBg);
-                pnlRedirect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-            }
-        });
+        pnlRedirect.setHoverEnabled(true);
+        pnlRedirect.setHoverBackground(new java.awt.Color(57, 62, 65));
 
         lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
