@@ -1,4 +1,5 @@
-
+import java.awt.Color;
+import java.awt.Cursor;
 import javax.swing.JOptionPane;
 
 /*
@@ -40,7 +41,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
 
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        pnlBackground = new javax.swing.JPanel();
         pnlFooter = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         pnlMainInterface = new components.RoundedPanel();
@@ -62,19 +63,19 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         pnlHeaderLayout.setHorizontalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addComponent(lblName)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(lblName)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(57, 62, 65));
+        pnlBackground.setBackground(new java.awt.Color(57, 62, 65));
 
         pnlFooter.setBackground(new java.awt.Color(244, 243, 240));
 
@@ -88,7 +89,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         pnlFooterLayout.setHorizontalGroup(
             pnlFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFooterLayout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17))
         );
@@ -110,14 +111,40 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
         pnlRedirect.setForeground(new java.awt.Color(244, 243, 240));
         pnlRedirect.setToolTipText("");
+        pnlRedirect.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        pnlRedirect.setHoverEnabled(true);
-        pnlRedirect.setHoverBackground(new java.awt.Color(57, 62, 65));
+        pnlRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlRedirect.setBackground(new Color(57, 62, 65));
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pnlRedirect.setBackground(new Color(88, 123, 127));
+            }
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (currentUser != null) {
+                    new UniversityApplicationsHomeScreenGUI(currentUser).setVisible(true);
+                } else {
+                    new UniversityApplicationsHomeScreenGUI().setVisible(true);
+                }
+                dispose();
+            }
+        });
 
         lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
         lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setText("University Application");
+        lblApplicationRedirect.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        lblApplicationRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlRedirect.dispatchEvent(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlRedirectLayout = new javax.swing.GroupLayout(pnlRedirect);
         pnlRedirect.setLayout(pnlRedirectLayout);
@@ -157,22 +184,22 @@ public class HomeScreenGUI extends javax.swing.JFrame {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlBackgroundLayout = new javax.swing.GroupLayout(pnlBackground);
+        pnlBackground.setLayout(pnlBackgroundLayout);
+        pnlBackgroundLayout.setHorizontalGroup(
+            pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pnlBackgroundLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        pnlBackgroundLayout.setVerticalGroup(
+            pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(pnlFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -181,18 +208,19 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     /**
      * @param args the command line arguments
@@ -221,10 +249,10 @@ public class HomeScreenGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblInstructions;
     private javax.swing.JLabel lblName;
+    private javax.swing.JPanel pnlBackground;
     private javax.swing.JPanel pnlFooter;
     private javax.swing.JPanel pnlHeader;
     private components.RoundedPanel pnlMainInterface;
