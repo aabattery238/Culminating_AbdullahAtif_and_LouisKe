@@ -24,7 +24,7 @@ public class User {
     private String username; 
     private String password;
     private String userID;
-    private ArrayList<University> universitiesApplied = new ArrayList<University>();
+    private ArrayList<University> totalUniversitiesApplied = new ArrayList<University>();
 
     public User(String userID, String username, String password) {
         this.username = username;
@@ -168,7 +168,7 @@ public class User {
     private University booleanSearchUniversity(String searchUniversity) {
         //initialize leftmost and right most indexes
         int left = 0;
-        int right = universitiesApplied.size() -1;
+        int right = totalUniversitiesApplied.size() -1;
         //repeat loop until one is selected
         
         while (left <= right) {
@@ -176,11 +176,11 @@ public class User {
             int mid = left + (right - left) / 2;
             System.out.println(mid);
             //if middle value is the item return
-            if (universitiesApplied.get(mid).getUniversityName().equals(searchUniversity)) {
-                 return universitiesApplied.get(mid);
+            if (totalUniversitiesApplied.get(mid).getUniversityName().equals(searchUniversity)) {
+                 return totalUniversitiesApplied.get(mid);
             }
             //compare title if less than 0 choose right half
-            if (universitiesApplied.get(mid).getUniversityName().compareTo(searchUniversity) < 0) {
+            if (totalUniversitiesApplied.get(mid).getUniversityName().compareTo(searchUniversity) < 0) {
                 left = mid + 1;
             } else { //choose left half
                 right = mid - 1;
@@ -193,10 +193,20 @@ public class User {
     }
     
     public void generateApplication(String selectedUniversity, String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate) {
-        universitiesApplied.add(new University("Waterloo","Blah","blah","Blah"));
+        totalUniversitiesApplied.add(new University("Waterloo","Blah","blah","Blah"));
         University universityFound = booleanSearchUniversity(selectedUniversity);
         if (universityFound != null) {
            universityFound.genApplication(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate, this);
         }
+    }
+    
+    public ArrayList<University.Application> getApplications() {
+        ArrayList<University.Application> userApplications = new ArrayList<University.Application>();
+        for (University uniApplied : totalUniversitiesApplied) {
+            for(University.Application uniApplications : uniApplied.getApplications()) {
+                userApplications.add(uniApplications);
+            }
+        }
+        return userApplications;
     }
 }
