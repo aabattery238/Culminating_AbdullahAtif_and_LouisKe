@@ -192,13 +192,16 @@ public class User {
             
     }
     
-    public void generateApplication(String selectedUniversity, String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate) {
-        totalUniversitiesApplied.add(new University("Waterloo","Blah","blah","Blah"));
-        University universityFound = booleanSearchUniversity(selectedUniversity);
+    
+    
+    public void generateApplication(University selectedUniversity, String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate) {
+        University universityFound = booleanSearchUniversity(selectedUniversity.getUniversityName());
         if (universityFound != null) {
            universityFound.genApplication(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate, this);
         }
     }
+    
+    
     
     public ArrayList<University.Application> getApplications() {
         ArrayList<University.Application> userApplications = new ArrayList<University.Application>();
@@ -209,4 +212,6 @@ public class User {
         }
         return userApplications;
     }
+    
+    
 }

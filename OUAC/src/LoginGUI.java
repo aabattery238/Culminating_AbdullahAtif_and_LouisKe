@@ -31,21 +31,21 @@ public class LoginGUI extends javax.swing.JFrame {
 
         jTabbedPane = new javax.swing.JTabbedPane();
         jpnLogin = new javax.swing.JPanel();
-        pnlMainInterface = new components.RoundedPanel();
+        pnlMainInterface = new javax.swing.JPanel();
         lblLoginTitle = new javax.swing.JLabel();
         lblLoginPassword = new javax.swing.JLabel();
         lblLoginUsername = new javax.swing.JLabel();
-        txfLoginUsername = new components.RoundedTextField();
-        txfLoginPassword = new components.RoundedTextField();
-        btnLogin = new components.RoundedButton();
+        txfLoginUsername = new javax.swing.JTextField();
+        txfLoginPassword = new javax.swing.JTextField();
+        btnLogin = new javax.swing.JButton();
         jpnSignUp = new javax.swing.JPanel();
-        pnlSignUpMainInterface = new components.RoundedPanel();
+        pnlSignUpMainInterface = new javax.swing.JPanel();
         lblSignUpTitle = new javax.swing.JLabel();
         lblSignUpUsername = new javax.swing.JLabel();
         lblSignUpPassword = new javax.swing.JLabel();
-        txfSignUpUsername = new components.RoundedTextField();
-        txfSignUpPassword = new components.RoundedTextField();
-        btnSignUp = new components.RoundedButton();
+        txfSignUpUsername = new javax.swing.JTextField();
+        txfSignUpPassword = new javax.swing.JTextField();
+        btnSignUp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(57, 62, 65));
@@ -330,8 +330,8 @@ public class LoginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.RoundedButton btnLogin;
-    private components.RoundedButton btnSignUp;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnSignUp;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JPanel jpnLogin;
     private javax.swing.JPanel jpnSignUp;
@@ -341,11 +341,11 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblSignUpPassword;
     private javax.swing.JLabel lblSignUpTitle;
     private javax.swing.JLabel lblSignUpUsername;
-    private components.RoundedPanel pnlMainInterface;
-    private components.RoundedPanel pnlSignUpMainInterface;
-    private components.RoundedTextField txfLoginPassword;
-    private components.RoundedTextField txfLoginUsername;
-    private components.RoundedTextField txfSignUpPassword;
-    private components.RoundedTextField txfSignUpUsername;
+    private javax.swing.JPanel pnlMainInterface;
+    private javax.swing.JPanel pnlSignUpMainInterface;
+    private javax.swing.JTextField txfLoginPassword;
+    private javax.swing.JTextField txfLoginUsername;
+    private javax.swing.JTextField txfSignUpPassword;
+    private javax.swing.JTextField txfSignUpUsername;
     // End of variables declaration//GEN-END:variables
 }
