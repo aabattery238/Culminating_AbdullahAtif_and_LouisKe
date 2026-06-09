@@ -21,6 +21,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     public UniversityApplicationsHomeScreenGUI(User currentUser) {
         initComponents();
+        txfApplicationsDisplay.setEditable(false);
         this.currentUser = currentUser;
     }
 
@@ -41,7 +42,8 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         lblApplicationRedirect = new javax.swing.JLabel();
         pnlMainInterface3 = new components.RoundedPanel();
         txfSearchBar = new components.RoundedTextField();
-        roundedButton1 = new components.RoundedButton();
+        btnSearch = new components.RoundedButton();
+        txfApplicationsDisplay = new components.RoundedTextField();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
 
@@ -107,21 +109,40 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlMainInterface3.setBackground(new java.awt.Color(204, 204, 204));
 
         txfSearchBar.setBackground(new java.awt.Color(244, 243, 240));
+        txfSearchBar.setForeground(new java.awt.Color(128, 128, 128));
+        txfSearchBar.setText("Search Bar");
+        txfSearchBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfSearchBarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txfSearchBarFocusLost(evt);
+            }
+        });
 
-        roundedButton1.setBorder(null);
-        roundedButton1.setForeground(new java.awt.Color(244, 243, 240));
-        roundedButton1.setText("Search");
-        roundedButton1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
+        btnSearch.setBorder(null);
+        btnSearch.setForeground(new java.awt.Color(244, 243, 240));
+        btnSearch.setText("Search");
+        btnSearch.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
+
+        txfApplicationsDisplay.setBackground(new java.awt.Color(244, 243, 240));
+        txfApplicationsDisplay.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfApplicationsDisplay.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout pnlMainInterface3Layout = new javax.swing.GroupLayout(pnlMainInterface3);
         pnlMainInterface3.setLayout(pnlMainInterface3Layout);
         pnlMainInterface3Layout.setHorizontalGroup(
             pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         pnlMainInterface3Layout.setVerticalGroup(
@@ -130,8 +151,10 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(344, Short.MAX_VALUE))
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
@@ -224,6 +247,20 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         //Remove this screen
     }//GEN-LAST:event_lblApplicationRedirectMouseClicked
 
+    private void txfSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusGained
+        if (txfSearchBar.getText().equals("Search Bar")){
+            txfSearchBar.setText("");
+            txfSearchBar.setForeground(new java.awt.Color(57,62,65));
+        }
+    }//GEN-LAST:event_txfSearchBarFocusGained
+
+    private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
+        if (txfSearchBar.getText().equals("")){
+            txfSearchBar.setText("Search Bar");
+            txfSearchBar.setForeground(new java.awt.Color(128,128,128));
+        }
+    }//GEN-LAST:event_txfSearchBarFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -250,6 +287,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private components.RoundedButton btnSearch;
     private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblFooter;
     private javax.swing.JLabel lblName;
@@ -259,7 +297,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     private components.RoundedPanel pnlMainInterface;
     private components.RoundedPanel pnlMainInterface2;
     private components.RoundedPanel pnlMainInterface3;
-    private components.RoundedButton roundedButton1;
+    private components.RoundedTextField txfApplicationsDisplay;
     private components.RoundedTextField txfSearchBar;
     // End of variables declaration//GEN-END:variables
 }
