@@ -37,8 +37,11 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         lblFooter = new javax.swing.JLabel();
         pnlBackground = new javax.swing.JPanel();
         pnlMainInterface = new components.RoundedPanel();
-        roundedPanel1 = new components.RoundedPanel();
+        pnlMainInterface2 = new components.RoundedPanel();
         lblApplicationRedirect = new javax.swing.JLabel();
+        pnlMainInterface3 = new components.RoundedPanel();
+        txfSearchBar = new components.RoundedTextField();
+        roundedButton1 = new components.RoundedButton();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
 
@@ -72,7 +75,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
         pnlMainInterface.setBackground(new java.awt.Color(244, 243, 240));
 
-        roundedPanel1.setBackground(new java.awt.Color(88, 123, 127));
+        pnlMainInterface2.setBackground(new java.awt.Color(88, 123, 127));
 
         lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
@@ -84,38 +87,72 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
-        roundedPanel1.setLayout(roundedPanel1Layout);
-        roundedPanel1Layout.setHorizontalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlMainInterface2Layout = new javax.swing.GroupLayout(pnlMainInterface2);
+        pnlMainInterface2.setLayout(pnlMainInterface2Layout);
+        pnlMainInterface2Layout.setHorizontalGroup(
+            pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
                 .addGap(211, 211, 211))
         );
-        roundedPanel1Layout.setVerticalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundedPanel1Layout.createSequentialGroup()
+        pnlMainInterface2Layout.setVerticalGroup(
+            pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainInterface2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblApplicationRedirect)
                 .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        pnlMainInterface3.setBackground(new java.awt.Color(204, 204, 204));
+
+        txfSearchBar.setBackground(new java.awt.Color(244, 243, 240));
+
+        roundedButton1.setBorder(null);
+        roundedButton1.setForeground(new java.awt.Color(244, 243, 240));
+        roundedButton1.setText("Search");
+        roundedButton1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
+
+        javax.swing.GroupLayout pnlMainInterface3Layout = new javax.swing.GroupLayout(pnlMainInterface3);
+        pnlMainInterface3.setLayout(pnlMainInterface3Layout);
+        pnlMainInterface3Layout.setHorizontalGroup(
+            pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        pnlMainInterface3Layout.setVerticalGroup(
+            pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
         pnlMainInterface.setLayout(pnlMainInterfaceLayout);
         pnlMainInterfaceLayout.setHorizontalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlMainInterface3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlMainInterface2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlMainInterfaceLayout.setVerticalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addComponent(pnlMainInterface2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlMainInterface3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlBackgroundLayout = new javax.swing.GroupLayout(pnlBackground);
@@ -220,6 +257,9 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFooter;
     private javax.swing.JPanel pnlHeader;
     private components.RoundedPanel pnlMainInterface;
-    private components.RoundedPanel roundedPanel1;
+    private components.RoundedPanel pnlMainInterface2;
+    private components.RoundedPanel pnlMainInterface3;
+    private components.RoundedButton roundedButton1;
+    private components.RoundedTextField txfSearchBar;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,7 +8,7 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.JButton;
 
 public class RoundedButton extends JButton {
-    private static final int DEFAULT_RADIUS = 18;
+    private static final int DEFAULT_RADIUS = 30;
     private final java.awt.Color defaultBackground = new java.awt.Color(88, 123, 127);
     private final java.awt.Color hoverBackground = new java.awt.Color(57, 62, 65);
     private boolean hoverInstalled = false;

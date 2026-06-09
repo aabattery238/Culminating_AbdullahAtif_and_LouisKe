@@ -10,7 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 public class RoundedTextField extends JTextField {
-    private static final int DEFAULT_RADIUS = 18;
+    private static final int DEFAULT_RADIUS = 30;
 
     public RoundedTextField() {
         setOpaque(false);
