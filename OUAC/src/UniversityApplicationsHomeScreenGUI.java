@@ -38,8 +38,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlBackground = new javax.swing.JPanel();
         pnlMainInterface = new components.RoundedPanel();
         roundedPanel1 = new components.RoundedPanel();
-        btnAddApplication = new components.CircleDesign();
-        plusSign1 = new components.PlusSign();
         lblApplicationRedirect = new javax.swing.JLabel();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
@@ -58,7 +56,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlFooterLayout.setHorizontalGroup(
             pnlFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFooterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(371, Short.MAX_VALUE)
                 .addComponent(lblFooter)
                 .addGap(17, 17, 17))
         );
@@ -75,38 +73,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlMainInterface.setBackground(new java.awt.Color(244, 243, 240));
 
         roundedPanel1.setBackground(new java.awt.Color(88, 123, 127));
-
-        btnAddApplication.setBackground(new java.awt.Color(244, 243, 240));
-
-        plusSign1.setThickness(7);
-
-        javax.swing.GroupLayout plusSign1Layout = new javax.swing.GroupLayout(plusSign1);
-        plusSign1.setLayout(plusSign1Layout);
-        plusSign1Layout.setHorizontalGroup(
-            plusSign1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 34, Short.MAX_VALUE)
-        );
-        plusSign1Layout.setVerticalGroup(
-            plusSign1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 34, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout btnAddApplicationLayout = new javax.swing.GroupLayout(btnAddApplication);
-        btnAddApplication.setLayout(btnAddApplicationLayout);
-        btnAddApplicationLayout.setHorizontalGroup(
-            btnAddApplicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAddApplicationLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plusSign1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        btnAddApplicationLayout.setVerticalGroup(
-            btnAddApplicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAddApplicationLayout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(plusSign1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
 
         lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
@@ -125,21 +91,14 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
                 .addContainerGap(222, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
-                .addGap(159, 159, 159)
-                .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(211, 211, 211))
         );
         roundedPanel1Layout.setVerticalGroup(
             roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundedPanel1Layout.createSequentialGroup()
-                .addGroup(roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(roundedPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(roundedPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lblApplicationRedirect)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(lblApplicationRedirect)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
@@ -166,7 +125,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(pnlBackgroundLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBackgroundLayout.setVerticalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +165,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,11 +213,9 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.CircleDesign btnAddApplication;
     private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblFooter;
     private javax.swing.JLabel lblName;
-    private components.PlusSign plusSign1;
     private javax.swing.JPanel pnlBackground;
     private javax.swing.JPanel pnlFooter;
     private javax.swing.JPanel pnlHeader;
