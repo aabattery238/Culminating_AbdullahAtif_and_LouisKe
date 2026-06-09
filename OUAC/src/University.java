@@ -115,7 +115,14 @@ public class University {
         return universityName;
     }
 
-    private class Application {
+    public ArrayList<Application> getApplications() {
+        return applications;
+    }
+    
+    
+
+
+    public class Application {
         private String programName;
         private boolean suppAppRequired;
         private LocalDateTime suppAppDate;
