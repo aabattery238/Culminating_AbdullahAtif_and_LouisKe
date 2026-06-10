@@ -1,5 +1,3 @@
-import java.awt.Color;
-import java.awt.Cursor;
 import javax.swing.JOptionPane;
 
 /*
@@ -111,25 +109,15 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
         pnlRedirect.setForeground(new java.awt.Color(244, 243, 240));
         pnlRedirect.setToolTipText("");
-        pnlRedirect.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
         pnlRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlRedirect.setBackground(new Color(57, 62, 65));
+                pnlRedirectMouseEntered(evt);
             }
-            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlRedirect.setBackground(new Color(88, 123, 127));
+                pnlRedirectMouseExited(evt);
             }
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (currentUser != null) {
-                    new UniversityApplicationsHomeScreenGUI(currentUser).setVisible(true);
-                } else {
-                    new UniversityApplicationsHomeScreenGUI().setVisible(true);
-                }
-                dispose();
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnlRedirectMousePressed(evt);
             }
         });
 
@@ -137,12 +125,15 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
         lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setText("University Application");
-        lblApplicationRedirect.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
         lblApplicationRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlRedirect.dispatchEvent(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMousePressed(evt);
             }
         });
 
@@ -199,7 +190,7 @@ public class HomeScreenGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(pnlFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -220,6 +211,38 @@ public class HomeScreenGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pnlRedirectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlRedirectMouseEntered
+        pnlRedirect.setBackground(new java.awt.Color(57, 62, 65));
+
+    }//GEN-LAST:event_pnlRedirectMouseEntered
+
+    private void pnlRedirectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlRedirectMouseExited
+        pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
+    }//GEN-LAST:event_pnlRedirectMouseExited
+
+    private void pnlRedirectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlRedirectMousePressed
+        // Create new university applications home screen
+        UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
+        universityApplicationsHomeScreenGUI.setVisible(true);
+        // Remove this screen    
+        this.dispose();
+    }//GEN-LAST:event_pnlRedirectMousePressed
+
+    private void lblApplicationRedirectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseEntered
+        pnlRedirect.setBackground(new java.awt.Color(57, 62, 65));
+    }//GEN-LAST:event_lblApplicationRedirectMouseEntered
+
+    private void lblApplicationRedirectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseExited
+        pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
+    }//GEN-LAST:event_lblApplicationRedirectMouseExited
+
+    private void lblApplicationRedirectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMousePressed
+        // Create new university applications home screen
+        UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
+        universityApplicationsHomeScreenGUI.setVisible(true);
+        // Remove this screen    
+        this.dispose();    }//GEN-LAST:event_lblApplicationRedirectMousePressed
 
 
     /**
