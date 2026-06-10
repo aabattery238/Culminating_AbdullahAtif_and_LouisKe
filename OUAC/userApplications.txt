@@ -7,3 +7,4 @@ userID
 2615390746
 	Waterloo,Blah,blah,Blah
 		svsv,true,1/1/1,true,1/1/1
+		Computer Science,true,10/05/2026,true,10/05/2026

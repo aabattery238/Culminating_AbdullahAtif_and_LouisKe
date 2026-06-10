@@ -185,7 +185,19 @@ public class University {
         }
         
         private String fileFormatOutput() {
-            return String.format("\t\t%s,%s,%s,%s,%s", programName, suppAppRequired, suppAppDate.format(formatter), interviewRequired, interviewDate.format(formatter));
+            String output = "\t\t" +programName;
+            if (suppAppRequired) {
+                output += ",true," + suppAppDate.format(formatter);
+            } else {
+                output += ",false,"; 
+            }
+            
+            if (interviewRequired) {
+                output += ",true," + interviewDate.format(formatter);
+            } else {
+                output += ",false,"; 
+            }
+            return output;
         }
    
         
