@@ -24,13 +24,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="pnlFooter" alignment="0" max="32767" attributes="0"/>
-          <Component id="pnlBackground" alignment="1" max="32767" attributes="0"/>
+          <Component id="pnlBackground1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="pnlBackground" max="32767" attributes="0"/>
+              <EmptySpace pref="106" max="32767" attributes="0"/>
+              <Component id="pnlBackground1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlFooter" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -82,7 +83,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pnlBackground">
+    <Container class="javax.swing.JPanel" name="pnlBackground1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="41" green="3e" red="39" type="rgb"/>
@@ -94,7 +95,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="pnlMainInterface" min="-2" max="-2" attributes="0"/>
+                  <Component id="pnlMainInterface1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -102,15 +103,15 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
-                  <Component id="pnlMainInterface" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="pnlMainInterface1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="components.RoundedPanel" name="pnlMainInterface">
+        <Container class="components.RoundedPanel" name="pnlMainInterface1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f3" red="f4" type="rgb"/>
@@ -124,45 +125,45 @@
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="cbxSuppApp" max="32767" attributes="0"/>
+                              <Component id="cbxSuppApp1" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="cbxInterview" max="32767" attributes="0"/>
+                                      <Component id="cbxInterview1" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="lblLoginUsername1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblLoginUsername3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblLoginUsername" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblLoginUsername2" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="slbxUniversities" max="32767" attributes="0"/>
-                                          <Component id="txfLoginUsername" max="32767" attributes="0"/>
+                                          <Component id="slbxUniversities1" pref="314" max="32767" attributes="0"/>
+                                          <Component id="txfLoginUsername1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="65" max="32767" attributes="0"/>
-                                      <Component id="lblInterviewDueDate" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="calInterviewDueDate" min="-2" pref="266" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                      <Component id="lblSuppAppDueDate" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="calSuppAppDueDate" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="calSuppAppDueDate1" min="-2" pref="266" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="calInterviewDueDate1" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="lblInterviewDueDate1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSuppAppDueDate1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -173,45 +174,33 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblLoginUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="slbxUniversities" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLoginUsername2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="slbxUniversities1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblLoginUsername1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfLoginUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLoginUsername3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfLoginUsername1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="cbxSuppApp" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="calSuppAppDueDate" min="-2" pref="162" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="lblSuppAppDueDate" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="cbxInterview" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="calInterviewDueDate" min="-2" pref="162" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="lblInterviewDueDate" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <Component id="cbxSuppApp1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblSuppAppDueDate1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="calSuppAppDueDate1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="cbxInterview1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInterviewDueDate1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="calInterviewDueDate1" min="-2" pref="162" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblLoginUsername">
+            <Component class="javax.swing.JLabel" name="lblLoginUsername2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name=".AppleSystemUIFont" size="18" style="0"/>
@@ -222,7 +211,7 @@
                 <Property name="text" type="java.lang.String" value="University:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="slbxUniversities">
+            <Component class="javax.swing.JComboBox" name="slbxUniversities1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f3" red="f4" type="rgb"/>
@@ -243,7 +232,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblLoginUsername1">
+            <Component class="javax.swing.JLabel" name="lblLoginUsername3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name=".AppleSystemUIFont" size="18" style="0"/>
@@ -254,7 +243,7 @@
                 <Property name="text" type="java.lang.String" value="Program Name:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfLoginUsername">
+            <Component class="javax.swing.JTextField" name="txfLoginUsername1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f3" red="f4" type="rgb"/>
@@ -267,7 +256,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="cbxSuppApp">
+            <Component class="javax.swing.JCheckBox" name="cbxSuppApp1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f3" red="f4" type="rgb"/>
@@ -284,7 +273,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxSuppAppActionPerformed"/>
               </Events>
             </Component>
-            <Component class="com.toedter.calendar.JCalendar" name="calSuppAppDueDate">
+            <Component class="com.toedter.calendar.JCalendar" name="calSuppAppDueDate1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f3" red="f4" type="rgb"/>
@@ -315,7 +304,7 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="calSuppAppDueDate.setVisible(false);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblSuppAppDueDate">
+            <Component class="javax.swing.JLabel" name="lblSuppAppDueDate1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name=".AppleSystemUIFont" size="18" style="0"/>
@@ -329,7 +318,7 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="lblSuppAppDueDate.setVisible(false);"/>
               </AuxValues>
             </Component>
-            <Component class="com.toedter.calendar.JCalendar" name="calInterviewDueDate">
+            <Component class="com.toedter.calendar.JCalendar" name="calInterviewDueDate1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f3" red="f4" type="rgb"/>
@@ -360,7 +349,7 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="calInterviewDueDate.setVisible(false);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblInterviewDueDate">
+            <Component class="javax.swing.JLabel" name="lblInterviewDueDate1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name=".AppleSystemUIFont" size="18" style="0"/>
@@ -374,7 +363,7 @@
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="lblInterviewDueDate.setVisible(false);"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="cbxInterview">
+            <Component class="javax.swing.JCheckBox" name="cbxInterview1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f3" red="f4" type="rgb"/>
