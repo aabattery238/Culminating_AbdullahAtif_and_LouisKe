@@ -14,7 +14,6 @@ public class RoundedTextField extends JTextField {
 
     public RoundedTextField() {
         setOpaque(false);
-        setBorder(BorderFactory.createEmptyBorder(8, 12, 8, 12));
     }
 
     @Override

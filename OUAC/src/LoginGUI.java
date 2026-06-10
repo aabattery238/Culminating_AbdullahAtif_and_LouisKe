@@ -31,21 +31,21 @@ public class LoginGUI extends javax.swing.JFrame {
 
         jTabbedPane = new javax.swing.JTabbedPane();
         jpnLogin = new javax.swing.JPanel();
-        pnlMainInterface = new javax.swing.JPanel();
+        pnlMainInterface = new components.RoundedPanel();
         lblLoginTitle = new javax.swing.JLabel();
         lblLoginPassword = new javax.swing.JLabel();
         lblLoginUsername = new javax.swing.JLabel();
-        txfLoginUsername = new javax.swing.JTextField();
-        txfLoginPassword = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
+        txfLoginUsername = new components.RoundedTextField();
+        txfLoginPassword = new components.RoundedTextField();
+        btnLogin = new components.RoundedButton();
         jpnSignUp = new javax.swing.JPanel();
-        pnlSignUpMainInterface = new javax.swing.JPanel();
+        pnlSignUpMainInterface = new components.RoundedPanel();
         lblSignUpTitle = new javax.swing.JLabel();
         lblSignUpUsername = new javax.swing.JLabel();
         lblSignUpPassword = new javax.swing.JLabel();
-        txfSignUpUsername = new javax.swing.JTextField();
-        txfSignUpPassword = new javax.swing.JTextField();
-        btnSignUp = new javax.swing.JButton();
+        txfSignUpUsername = new components.RoundedTextField();
+        txfSignUpPassword = new components.RoundedTextField();
+        btnSignUp = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(57, 62, 65));
