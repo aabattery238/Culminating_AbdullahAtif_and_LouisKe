@@ -128,11 +128,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         btnSearch.setForeground(new java.awt.Color(244, 243, 240));
         btnSearch.setText("Search");
         btnSearch.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
-        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSearchMouseClicked(evt);
-            }
-        });
+        btnSearch.addActionListener(this::btnSearchActionPerformed);
 
         txfApplicationsDisplay.setBackground(new java.awt.Color(244, 243, 240));
         txfApplicationsDisplay.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -292,10 +288,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         //Remove this screen
     }//GEN-LAST:event_lblApplicationRedirectMouseClicked
 
-    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
-
-    }//GEN-LAST:event_btnSearchMouseClicked
-
     private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
         if (txfSearchBar.getText().equals("")){
             txfSearchBar.setText("Search Bar");
@@ -309,6 +301,21 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             txfSearchBar.setForeground(new java.awt.Color(57,62,65));
         }
     }//GEN-LAST:event_txfSearchBarFocusGained
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String searchUniversity = txfSearchBar.getText();
+        // if search bar is empty or default text, do not search and return
+        if (searchUniversity.equals("") || searchUniversity.equals("Search Bar")) {
+            return;
+        }
+        University universityFound = currentUser.getsearchUniversity(searchUniversity);
+        if (universityFound != null) {
+            txfApplicationsDisplay.setText(universityFound.toString());
+        } else {
+            txfApplicationsDisplay.setText("University Not Found");
+        }
+
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments

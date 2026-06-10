@@ -191,6 +191,16 @@ public class User {
         return null;
             
     }
+
+    // returns university if found, null if not found
+    public University getsearchUniversity(String searchUniversity) {
+        University universityFound = booleanSearchUniversity(searchUniversity);
+        if (universityFound != null) {
+            return universityFound;
+        } else {
+            return null;
+        }
+    }
     
     
     
