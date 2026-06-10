@@ -222,6 +222,11 @@ public class User {
         }
         return userApplications;
     }
+
+    public ArrayList<University> getTotalUniversitiesApplied() {
+        return totalUniversitiesApplied;
+    }
+    
     
     
 }
