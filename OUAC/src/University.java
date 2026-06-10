@@ -130,6 +130,42 @@ public class University {
         return String.format("\t%s,%s,%s,%s", universityName, universityLocation, universityID, universityPassword);
     }
     
+    private static ArrayList<String> validUniversities = new ArrayList<>();
+
+    public static void loadUniversities()  {
+        try {
+        BufferedReader br = new BufferedReader(new FileReader("globalList.txt"));
+        String line;
+        while ((line = br.readLine()) != null) {
+            String name = line.split(",")[0].trim().toLowerCase();
+            validUniversities.add(name);
+        }
+        br.close();
+        } catch (Exception e) {
+            System.out.println("globalList.txt not found");
+        }
+    }
+    
+    public boolean isValidUniversity(String input) {
+        int left = 0;
+        int right = validUniversities.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            int comparison = validUniversities.get(mid).compareToIgnoreCase(input.trim());
+
+            if (comparison == 0) {
+                return true;
+            } else if (comparison < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return false;
+    }
+    
     
 
 
