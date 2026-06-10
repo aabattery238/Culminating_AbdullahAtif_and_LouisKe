@@ -48,6 +48,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         roundedButton1 = new components.RoundedButton();
         roundedButton2 = new components.RoundedButton();
+        btnAddApplication = new components.RoundedButton();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
 
@@ -100,14 +101,14 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
-                .addGap(209, 209, 209))
+                .addGap(230, 230, 230))
         );
         pnlMainInterface2Layout.setVerticalGroup(
             pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(lblApplicationRedirect)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pnlMainInterface3.setBackground(new java.awt.Color(204, 204, 204));
@@ -146,6 +147,11 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         roundedButton2.setText("<");
         roundedButton2.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
 
+        btnAddApplication.setForeground(new java.awt.Color(244, 243, 240));
+        btnAddApplication.setText("Add");
+        btnAddApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
+        btnAddApplication.addActionListener(this::btnAddApplicationActionPerformed);
+
         javax.swing.GroupLayout pnlMainInterface3Layout = new javax.swing.GroupLayout(pnlMainInterface3);
         pnlMainInterface3.setLayout(pnlMainInterface3Layout);
         pnlMainInterface3Layout.setHorizontalGroup(
@@ -153,34 +159,36 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(540, 540, 540)
+                        .addComponent(jLabel1)
+                        .addGap(0, 45, Short.MAX_VALUE))
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(roundedButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(8, 8, 8)
                         .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(roundedButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                                .addGap(540, 540, 540)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addComponent(roundedButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         pnlMainInterface3Layout.setVerticalGroup(
             pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
@@ -188,10 +196,10 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
                                 .addComponent(roundedButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(228, 228, 228)
+                        .addGap(245, 245, 245)
                         .addComponent(jLabel1))
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(78, 78, 78)
                         .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -224,16 +232,16 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlBackgroundLayout.setHorizontalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         pnlBackgroundLayout.setVerticalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBackgroundLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         pnlHeader.setBackground(new java.awt.Color(244, 243, 240));
@@ -281,13 +289,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblApplicationRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseClicked
-        //Create new university application screen
-        UniversityApplicationsHomeScreenGUI universityScreenGUI = new UniversityApplicationsHomeScreenGUI();
-        universityScreenGUI.setVisible(true);
-        //Remove this screen
-    }//GEN-LAST:event_lblApplicationRedirectMouseClicked
-
     private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
         if (txfSearchBar.getText().equals("")){
             txfSearchBar.setText("Search Bar");
@@ -317,6 +318,21 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void lblApplicationRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseClicked
+        //Create new university application screen
+        UniversityApplicationsHomeScreenGUI universityScreenGUI = new UniversityApplicationsHomeScreenGUI();
+        universityScreenGUI.setVisible(true);
+        //Remove this screen
+    }//GEN-LAST:event_lblApplicationRedirectMouseClicked
+
+    private void btnAddApplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApplicationActionPerformed
+        //Create new remove employees screen
+        CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
+        createApplicationGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();
+    }//GEN-LAST:event_btnAddApplicationActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -343,6 +359,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private components.RoundedButton btnAddApplication;
     private components.RoundedButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollBar jScrollBar1;

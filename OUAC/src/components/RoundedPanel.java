@@ -7,7 +7,6 @@ import javax.swing.*;
 public class RoundedPanel extends JPanel {
     private int radius = 67;
     private Shape shape;
-    private boolean autoRadius = false;
     private boolean hoverEnabled = false;
     private Color hoverBackground;
     private Color normalBackground;
@@ -46,7 +45,6 @@ public class RoundedPanel extends JPanel {
             @Override
             public void componentResized(java.awt.event.ComponentEvent e) {
                 shape = null;
-                if (autoRadius) repaint();
             }
         });
         addMouseListener(hoverMouseAdapter);
@@ -64,20 +62,6 @@ public class RoundedPanel extends JPanel {
         repaint();
         firePropertyChange("radius", old, radius);
     }
-
-    public boolean isAutoRadius() {
-        return autoRadius;
-    }
-
-    public void setAutoRadius(boolean autoRadius) {
-        boolean old = this.autoRadius;
-        this.autoRadius = autoRadius;
-        this.shape = null;
-        revalidate();
-        repaint();
-        firePropertyChange("autoRadius", old, autoRadius);
-    }
-
     public boolean isHoverEnabled() {
         return hoverEnabled;
     }
@@ -120,13 +104,12 @@ public class RoundedPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        int r = autoRadius ? Math.min(getWidth(), getHeight()) / 2 : radius;
         // paint rounded background
         g2.setColor(getBackground());
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), r, r);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
         // clip to rounded shape so children paint within it
         Shape oldClip = g2.getClip();
-        RoundRectangle2D round = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), r, r);
+        RoundRectangle2D round = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), radius, radius);
         g2.clip(round);
         super.paintComponent(g2);
         g2.setClip(oldClip);
@@ -135,9 +118,8 @@ public class RoundedPanel extends JPanel {
 
     @Override
     public boolean contains(int x, int y) {
-        int r = autoRadius ? Math.min(getWidth(), getHeight()) / 2 : radius;
         if (shape == null || !shape.getBounds().equals(getBounds())) {
-            shape = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), r, r);
+            shape = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), radius, radius);
         }
         return shape.contains(x, y);
     }
