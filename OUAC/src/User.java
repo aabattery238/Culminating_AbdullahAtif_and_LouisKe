@@ -279,7 +279,7 @@ public class User {
                                     int day = Integer.parseInt(date[0]);
                                     int month = Integer.parseInt(date[1]);
                                     int year = Integer.parseInt(date[2]);
-                                    suppAppDate = LocalDate.of(year, month, day); // FIX 2
+                                    suppAppDate = LocalDate.of(year, month, day); 
                                 }
                             } catch (Exception e) {
                                 System.out.println(e + " 6");
