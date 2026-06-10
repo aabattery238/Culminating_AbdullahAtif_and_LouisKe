@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -204,7 +204,7 @@ public class User {
     
     
     
-    public void generateApplication(University selectedUniversity, String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate) {
+    public void generateApplication(University selectedUniversity, String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate) {
         University universityFound = booleanSearchUniversity(selectedUniversity.getUniversityName());
         if (universityFound != null) {
            universityFound.genApplication(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate, this);
@@ -227,6 +227,98 @@ public class User {
         return totalUniversitiesApplied;
     }
     
-    
-    
+    public void readUserUniversities() {
+        try {
+            ArrayList<University> userUniOutput = new ArrayList<University>();
+            BufferedReader br = new BufferedReader(new FileReader("userApplications.txt"));
+
+            for (int i = 0; i < 3; i++) br.readLine();
+
+            String line = br.readLine();
+            boolean userFound = false;
+            boolean uniOpen = false;
+            University currentUniLine = null;
+            loop:
+            while (line != null) {
+                int tabsCount = (int) line.chars().filter(ch -> ch == '\t').count();
+                switch (tabsCount) {
+                    case 0 -> {
+                        if (!userFound && (userID.equalsIgnoreCase(line.strip()))) {
+                            userFound = true;
+                        } else if (userFound) {
+                            break loop;
+                        }
+                    }
+                    case 1 -> {
+                        try {
+                            if (userFound) {
+                                if (uniOpen && currentUniLine != null) {
+                                    userUniOutput.add(currentUniLine);
+                                }
+                                String[] formattedUniLine = line.strip().split(",");
+                                currentUniLine = new University(
+                                formattedUniLine[0], formattedUniLine[1],
+                                formattedUniLine[2], formattedUniLine[3]
+                            );
+                            uniOpen = true;
+                            }   
+                        } catch (Exception e) {
+                            System.out.println(e + " 4");
+                        }
+                    }
+                    case 2 -> {
+                        if (uniOpen) {
+                            String[] formattedAppLine = line.strip().split(",");
+                            String programName = formattedAppLine[0];
+                            boolean suppAppRequired = Boolean.parseBoolean(formattedAppLine[1]);
+                            LocalDate suppAppDate = null;
+                            LocalDate interviewDate = null;
+                            try {
+                                if (suppAppRequired) {
+                                    String[] date = formattedAppLine[2].split("/");
+                                    int day = Integer.parseInt(date[0]);
+                                    int month = Integer.parseInt(date[1]);
+                                    int year = Integer.parseInt(date[2]);
+                                    suppAppDate = LocalDate.of(year, month, day); // FIX 2
+                                }
+                            } catch (Exception e) {
+                                System.out.println(e + " 6");
+                            }
+                            boolean interviewRequired = Boolean.parseBoolean(formattedAppLine[3]);
+                            try {
+                                if (interviewRequired) {
+                                String[] date = formattedAppLine[4].split("/");
+                                int day = Integer.parseInt(date[0]);
+                                int month = Integer.parseInt(date[1]);
+                                int year = Integer.parseInt(date[2]);
+                                interviewDate = LocalDate.of(year, month, day); 
+                            }
+                            } catch (Exception e) {
+                                System.out.println(e + " 7");
+                            }
+
+                            University.Application currentLineApplication = currentUniLine.new Application(
+                                programName, suppAppRequired, suppAppDate,
+                                interviewRequired, interviewDate
+                            );
+                            currentUniLine.addApplication(currentLineApplication);
+                        }
+                    }
+                }
+                line = br.readLine();
+            }
+            if (uniOpen && currentUniLine != null) {
+                userUniOutput.add(currentUniLine);
+            }
+
+            br.close();
+            totalUniversitiesApplied = userUniOutput;
+            System.out.println(totalUniversitiesApplied.get(0).toString());
+        } catch (Exception e) {
+            System.out.println(e + " 8");
+        }
+    }   
 }
+    
+    
+    

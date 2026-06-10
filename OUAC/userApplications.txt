@@ -3,7 +3,7 @@ userID
 		programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate
 2615392649
 	jnvs,dlifn,nkjadn,nkwjenf
-		khsdjbf,ajefb,ajkebf,aenfdlj,nabdkjf
+		khsdjbf,true,2/2/2,false,
 2615390746
 	Waterloo,Blah,blah,Blah
-		svsv,true,+999999999-12-31T23:59:59.999999999,true,-999999999-01-01T00:00
+		svsv,true,1/1/1,true,1/1/1

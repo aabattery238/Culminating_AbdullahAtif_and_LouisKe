@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author abdullahatif
  */
 public class University {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private String universityName;
     private String universityLocation;
     private String universityID;
@@ -29,8 +31,12 @@ public class University {
         this.universityID = universityID;
         this.universityPassword = universityPassword;
     }
+
+    public void addApplication(Application application) {
+        this.applications.add(application);
+    }
     
-    public void genApplication(String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate, User user) {
+    public void genApplication(String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate, User user) {
         Application newApp = new Application(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate);
         applications.add(newApp);
         int locationInsert = 0;
@@ -118,6 +124,11 @@ public class University {
     public ArrayList<Application> getApplications() {
         return applications;
     }
+
+    @Override
+    public String toString() {
+        return String.format("\t%s,%s,%s,%s", universityName, universityLocation, universityID, universityPassword);
+    }
     
     
 
@@ -125,11 +136,11 @@ public class University {
     public class Application {
         private String programName;
         private boolean suppAppRequired;
-        private LocalDateTime suppAppDate;
+        private LocalDate suppAppDate;
         private boolean interviewRequired;
-        private LocalDateTime interviewDate;
+        private LocalDate interviewDate;
 
-        private Application(String programName, boolean suppAppRequired, LocalDateTime suppAppDate, boolean interviewRequired, LocalDateTime interviewDate) {
+        public Application(String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate) {
             this.programName = programName;
             this.suppAppRequired = suppAppRequired;
             this.suppAppDate = suppAppDate;
@@ -138,7 +149,7 @@ public class University {
         }
         
         private String fileFormatOutput() {
-            return String.format("\t\t%s,%s,%s,%s,%s", programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate);
+            return String.format("\t\t%s,%s,%s,%s,%s", programName, suppAppRequired, suppAppDate.format(formatter), interviewRequired, interviewDate.format(formatter));
         }
    
         
