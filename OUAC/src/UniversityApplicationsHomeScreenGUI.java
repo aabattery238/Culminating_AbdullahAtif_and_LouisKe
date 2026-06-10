@@ -45,9 +45,8 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txfSearchBar = new components.RoundedTextField();
         btnSearch = new components.RoundedButton();
         txfApplicationsDisplay = new components.RoundedTextField();
-        jLabel1 = new javax.swing.JLabel();
-        roundedButton1 = new components.RoundedButton();
-        roundedButton2 = new components.RoundedButton();
+        btnRight = new components.RoundedButton();
+        btnLeft = new components.RoundedButton();
         btnAddApplication = new components.RoundedButton();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
@@ -135,17 +134,15 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txfApplicationsDisplay.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txfApplicationsDisplay.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
 
-        jLabel1.setText("jLabel1");
+        btnRight.setBorder(null);
+        btnRight.setForeground(new java.awt.Color(244, 243, 240));
+        btnRight.setText(">");
+        btnRight.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
 
-        roundedButton1.setBorder(null);
-        roundedButton1.setForeground(new java.awt.Color(244, 243, 240));
-        roundedButton1.setText(">");
-        roundedButton1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
-
-        roundedButton2.setBorder(null);
-        roundedButton2.setForeground(new java.awt.Color(244, 243, 240));
-        roundedButton2.setText("<");
-        roundedButton2.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnLeft.setBorder(null);
+        btnLeft.setForeground(new java.awt.Color(244, 243, 240));
+        btnLeft.setText("<");
+        btnLeft.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
 
         btnAddApplication.setForeground(new java.awt.Color(244, 243, 240));
         btnAddApplication.setText("Add");
@@ -157,21 +154,15 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlMainInterface3Layout.setHorizontalGroup(
             pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGap(540, 540, 540)
-                        .addComponent(jLabel1)
-                        .addGap(0, 45, Short.MAX_VALUE))
-                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(roundedButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(8, 8, 8)
-                        .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(roundedButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(btnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 22, Short.MAX_VALUE)
                 .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,16 +183,14 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                         .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
-                                .addComponent(roundedButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
-                                .addComponent(roundedButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(245, 245, 245)
-                        .addComponent(jLabel1))
+                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
@@ -223,7 +212,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnlMainInterface2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlMainInterface3, javax.swing.GroupLayout.PREFERRED_SIZE, 424, Short.MAX_VALUE)
+                .addComponent(pnlMainInterface3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -360,8 +349,9 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.RoundedButton btnAddApplication;
+    private components.RoundedButton btnLeft;
+    private components.RoundedButton btnRight;
     private components.RoundedButton btnSearch;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblFooter;
@@ -372,8 +362,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     private components.RoundedPanel pnlMainInterface;
     private components.RoundedPanel pnlMainInterface2;
     private components.RoundedPanel pnlMainInterface3;
-    private components.RoundedButton roundedButton1;
-    private components.RoundedButton roundedButton2;
     private components.RoundedTextField txfApplicationsDisplay;
     private components.RoundedTextField txfSearchBar;
     // End of variables declaration//GEN-END:variables
