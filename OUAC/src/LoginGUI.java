@@ -300,7 +300,7 @@ public class LoginGUI extends javax.swing.JFrame {
         String passwordInput = ErrorCheck.stringParse(txfSignUpPassword.getText(), 10, "Password", this);
         if (passwordInput == null) {
             return;
-        }
+        }   
         User.signUp(usernameInput, passwordInput, this);
         jTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_btnSignUpActionPerformed
