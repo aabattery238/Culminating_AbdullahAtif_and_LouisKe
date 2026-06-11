@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -147,23 +146,24 @@ public class University {
     }
     
     public static boolean isValidUniversity(String input) {
-        int left = 0;
-        int right = validUniversities.size() - 1;
+    return isValidUniversityHelper(input, 0, validUniversities.size() - 1);
+    }
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+    private static boolean isValidUniversityHelper(String input, int left, int right) {
+        // Base case - not found
+        if (left > right) return false;
 
-            int comparison = validUniversities.get(mid).compareToIgnoreCase(input.trim());
+        int mid = left + (right - left) / 2;
+        int comparison = validUniversities.get(mid).compareToIgnoreCase(input.trim());
 
-            if (comparison == 0) {
-                return true;
-            } else if (comparison < 0) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return false;
+        // Base case - found
+        if (comparison == 0) return true;
+
+        // Recurse into right half
+        else if (comparison < 0) return isValidUniversityHelper(input, mid + 1, right);
+
+        // Recurse into left half
+        else return isValidUniversityHelper(input, left, mid - 1);
     }
     
     public static String getUniversityWebsite(String input) {
@@ -221,6 +221,18 @@ public class University {
 
         public String getProgramName() {
             return programName;
+        }
+
+        @Override
+        public String toString() {
+            String output =  "\n  University: " + universityName +"\n  Program: " + programName;
+            if (suppAppRequired) {
+                output += "\n\tSupplementary App Due: " + suppAppDate.format(formatter);
+            }
+            if (interviewRequired) {
+                output += "\n\tInterview Date: " + interviewDate.format(formatter);
+            }
+            return output;
         }
         
         

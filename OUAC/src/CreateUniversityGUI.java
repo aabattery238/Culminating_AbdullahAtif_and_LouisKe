@@ -13,7 +13,7 @@ import java.util.Calendar;
  */
 public class CreateUniversityGUI extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeScreenGUI.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(UniversityApplicationsHomeScreenGUI.class.getName());
 
     /**
      * Creates new form HomeScreenGUI
@@ -306,7 +306,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new HomeScreenGUI().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new UniversityApplicationsHomeScreenGUI().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
