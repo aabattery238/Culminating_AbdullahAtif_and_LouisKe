@@ -172,7 +172,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="roundedPanel1" max="32767" attributes="0"/>
+                      <Component id="pnlCreateUniversity" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -199,7 +199,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="roundedPanel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlCreateUniversity" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblUniName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -256,7 +256,7 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Container class="components.RoundedPanel" name="roundedPanel1">
+            <Container class="components.RoundedPanel" name="pnlCreateUniversity">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7f" green="7b" red="58" type="rgb"/>
@@ -297,11 +297,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Create University"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblApplicationRedirectMouseEntered"/>
-                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblApplicationRedirectMouseExited"/>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblApplicationRedirectMousePressed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>

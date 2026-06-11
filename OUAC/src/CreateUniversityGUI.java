@@ -48,7 +48,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         lblUniName = new javax.swing.JLabel();
         lblUniID = new javax.swing.JLabel();
         lblUniPassword = new javax.swing.JLabel();
-        roundedPanel1 = new components.RoundedPanel();
+        pnlCreateUniversity = new components.RoundedPanel();
         lblApplicationRedirect = new javax.swing.JLabel();
         txfUniName = new components.RoundedTextField();
         txfUniID = new components.RoundedTextField();
@@ -122,36 +122,25 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         lblUniPassword.setForeground(new java.awt.Color(57, 62, 65));
         lblUniPassword.setText("Password");
 
-        roundedPanel1.setBackground(new java.awt.Color(88, 123, 127));
+        pnlCreateUniversity.setBackground(new java.awt.Color(88, 123, 127));
 
         lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
         lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setText("Create University");
-        lblApplicationRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblApplicationRedirectMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblApplicationRedirectMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblApplicationRedirectMousePressed(evt);
-            }
-        });
 
-        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
-        roundedPanel1.setLayout(roundedPanel1Layout);
-        roundedPanel1Layout.setHorizontalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlCreateUniversityLayout = new javax.swing.GroupLayout(pnlCreateUniversity);
+        pnlCreateUniversity.setLayout(pnlCreateUniversityLayout);
+        pnlCreateUniversityLayout.setHorizontalGroup(
+            pnlCreateUniversityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateUniversityLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
                 .addGap(200, 200, 200))
         );
-        roundedPanel1Layout.setVerticalGroup(
-            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+        pnlCreateUniversityLayout.setVerticalGroup(
+            pnlCreateUniversityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateUniversityLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
                 .addGap(17, 17, 17))
@@ -188,7 +177,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlCreateUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
@@ -209,7 +198,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlCreateUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUniName)
@@ -264,21 +253,6 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblApplicationRedirectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseEntered
-        pnlRedirect.setBackground(new java.awt.Color(57, 62, 65));
-    }//GEN-LAST:event_lblApplicationRedirectMouseEntered
-
-    private void lblApplicationRedirectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseExited
-        pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
-    }//GEN-LAST:event_lblApplicationRedirectMouseExited
-
-    private void lblApplicationRedirectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMousePressed
-        // Create new university applications home screen
-        UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
-        universityApplicationsHomeScreenGUI.setVisible(true);
-        // Remove this screen
-    }//GEN-LAST:event_lblApplicationRedirectMousePressed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         String uniName = ErrorCheck.trueStringParse(txfUniName.getText(), 40, "University Name", this);
@@ -344,10 +318,10 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblUniName;
     private javax.swing.JLabel lblUniPassword;
     private javax.swing.JPanel pnlBackground;
+    private components.RoundedPanel pnlCreateUniversity;
     private javax.swing.JPanel pnlFooter;
     private javax.swing.JPanel pnlHeader;
     private components.RoundedPanel pnlMainInterface;
-    private components.RoundedPanel roundedPanel1;
     private components.RoundedTextField txfUniID;
     private components.RoundedTextField txfUniName;
     private components.RoundedTextField txfUniPassword;

@@ -50,18 +50,6 @@ public class RoundedPanel extends JPanel {
         addMouseListener(hoverMouseAdapter);
     }
 
-    public int getRadius() {
-        return radius;
-    }
-
-    public void setRadius(int radius) {
-        int old = this.radius;
-        this.radius = radius;
-        this.shape = null;
-        revalidate();
-        repaint();
-        firePropertyChange("radius", old, radius);
-    }
     public boolean isHoverEnabled() {
         return hoverEnabled;
     }
