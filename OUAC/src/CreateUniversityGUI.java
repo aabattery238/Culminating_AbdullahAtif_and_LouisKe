@@ -269,7 +269,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         if (uniName == null) {
             return;
         } 
-        if (University.isValidUniversity(uniName)) {
+        if (!University.isValidUniversity(uniName)) {
             JOptionPane.showMessageDialog(this, "University Not Located", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -292,10 +292,19 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
-        createApplicationGUI.setVisible(true);
-        //Remove this screen
-        this.dispose();    
+        
+        if (currentUser.getTotalUniversitiesApplied().size() == 0) {
+            UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
+            universityApplicationsHomeScreenGUI.setVisible(true);
+            //Remove this screen
+            this.dispose();
+        } else {
+            //Create new remove employees screen
+            CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
+            createApplicationGUI.setVisible(true);
+            //Remove this screen
+            this.dispose();
+        }    
     }//GEN-LAST:event_btnBackActionPerformed
     
     

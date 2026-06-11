@@ -264,6 +264,7 @@ public class LoginGUI extends javax.swing.JFrame {
             } else {
                 //Create new remove employees screen
                 loggedInUser.readUserUniversities();
+                University.isValidUniversity("yale university");
                 System.out.print(loggedInUser.getUsername());
                 UniversityApplicationsHomeScreenGUI homeScreenGUI = new UniversityApplicationsHomeScreenGUI(loggedInUser);
                 homeScreenGUI.setVisible(true);

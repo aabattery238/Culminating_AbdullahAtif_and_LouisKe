@@ -21,16 +21,18 @@ import java.util.ArrayList;
 
 
 public class User {
+    //initialize variables
     private String username; 
     private String password;
     private String userID;
     private ArrayList<University> totalUniversitiesApplied = new ArrayList<University>();
-
+    //constructor for sign in
     public User(String userID, String username, String password) {
         this.username = username;
         this.password = password;
         this.userID = userID;
     }
+    //constructor for sign up
     private User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -38,12 +40,14 @@ public class User {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyDDHssSS");
         this.userID = time.format(formatter);
     }
-    
+    //add user method
     public static void addUser(User newUser, javax.swing.JFrame gui) {
+        //get list of users
         ArrayList<User> users = getUsers();
         users.add(newUser);
+        //sort list based on ID
         users.sort((u1, u2) -> u1.getUserID().compareTo(u2.getUserID()));
-        System.out.println(users);
+        //write users to file
         try {
             FileWriter fw = new FileWriter("users.txt");
             BufferedWriter bw = new BufferedWriter(fw);
@@ -62,6 +66,7 @@ public class User {
         }
     }
     
+    //get all users
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
@@ -77,6 +82,7 @@ public class User {
                 line = br.readLine();
 	    }
             br.close();
+            //return list of users
             return users;
         } catch (Exception e) {
             System.out.println(e+" 1");
@@ -84,7 +90,7 @@ public class User {
         }
     }
     
-    
+    //check if user exists for sign in
     public static boolean checkUserExists(String userInput, javax.swing.JFrame gui) {
         try {
             //Initialize File Reader
@@ -107,7 +113,7 @@ public class User {
             return false;
         }
     }
-    
+    //find user for sign in
     private static String findUser(String userInput, javax.swing.JFrame gui) {
         try {
             //Initialize File Reader
@@ -116,6 +122,7 @@ public class User {
             String line = br.readLine(); // skip header
             line = br.readLine();
             while (line != null) {
+                //loop through and get values if found
                 if (line.split(",")[1].equals(userInput)) {
                     br.close();
                     return line;
@@ -130,7 +137,7 @@ public class User {
             return null;
         }
     }
-    
+    //login method to ensure encapsulation and privacy
     public static User login(String usernameInput, String passwordInput, javax.swing.JFrame gui) {
         String found = findUser(usernameInput, gui);
         if (found == null) {
@@ -146,7 +153,7 @@ public class User {
             return null;
         }  
     }
-    
+    //sign up method to create and generate user, including writing into file
     public static User signUp(String usernameInput, String passwordInput, javax.swing.JFrame gui) {
         if (checkUserExists(usernameInput, gui)) {
             JOptionPane.showMessageDialog(gui, "User with this name already exists", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -158,7 +165,7 @@ public class User {
         }
         
     }
-
+    //getter methods
     public String getUsername() {
         return username;
     }

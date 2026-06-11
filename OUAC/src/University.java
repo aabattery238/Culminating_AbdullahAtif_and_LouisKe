@@ -17,30 +17,37 @@ import java.io.FileWriter;
  * @author abdullahatif
  */
 public class University {
-    //Initialize University Class
+    //Date formatter
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    //Initialize University Class
     private String universityName;
     private String universityWebsite;
     private String universityID;
     private String universityPassword;
     private ArrayList<Application> applications = new ArrayList<Application>();
-
+    
+    //Create University Object
     public University(String universityName, String universityWebsite, String universityID, String universityPassword) {
         this.universityName = universityName;
         this.universityWebsite = universityWebsite;
         this.universityID = universityID;
         this.universityPassword = universityPassword;
     }
-
+    
+    //add apllication to object's list
     public void addApplication(Application application) {
         this.applications.add(application);
     }
     
+    //Generate application and save it on text file
     public void genApplication(String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate, User user) {
+        //create application object
         Application newApp = new Application(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate);
+        //add it to list
         applications.add(newApp);
-        int WebsiteInsert = 0;
+        int locationInsert = 0;
         try {
+            //read through array to build array list
             ArrayList<String> output = new ArrayList<String>();
             BufferedReader brt = new BufferedReader(new FileReader("userApplications.txt"));
             String lineRead = brt.readLine();
@@ -59,41 +66,52 @@ public class University {
             
             String line = br.readLine();
             //Loop through file lines
+            //Find user and university
             boolean userFound = false;
             boolean uniFound = false;
             int lastUni = 0;
+            //loop through
             loop:
             while (line != null) {
+                //get num of tabs 0 -> user, 1 -> university, 2 -> program
                 int tabsCount = (int) line.chars().filter(ch -> ch == '\t').count();
                 System.out.println(tabsCount);
                 switch (tabsCount) {
                     case 0 -> {
+                        //save user location
                         if (!userFound && (user.getUserID().equalsIgnoreCase(line.strip()))) {
                             userFound = true;
+                        //new user starting so break loop
                         } else if (userFound) {
                             break loop;
                         }
                     }
                     case 1 -> {
-                        System.out.println(line.strip().split(",")[0]);
+                        //the user is found and the university is found
                         if (userFound && (this.getUniversityName().equalsIgnoreCase(line.strip().split(",")[0]))) {
                             uniFound = true;
+                        //university hasn't been found but user has
                         } else if (userFound && !uniFound) {
                             lastUni = lines;
+                        //both have been found
                         } else if (userFound && uniFound) {
                             break loop;
                         }
                     }
                     case 2 -> {
                         if (uniFound) {
-                            WebsiteInsert = lines;
+                            locationInsert = lines;
                         }
                     }
                 }
+                //read new line and add to counter
                 line = br.readLine();
                 ++lines;
 	    }
+            //close when done
             br.close();
+            
+            //determine insertion location
             if (!userFound) {
                 output.add(user.getUserID());
                 output.add(String.format("\t%s,%s,%s,%s", this.universityName, this.universityWebsite, this.universityID, this.universityPassword));
@@ -102,9 +120,9 @@ public class University {
                 output.add(lastUni, String.format("\t%s,%s,%s,%s", this.universityName, this.universityWebsite, this.universityID, this.universityPassword));
                 output.add(lastUni+1, newApp.fileFormatOutput());
             } else {
-                output.add(WebsiteInsert, newApp.fileFormatOutput());
+                output.add(locationInsert, newApp.fileFormatOutput());
             }
-            
+            //rewrite file
             BufferedWriter bw = new BufferedWriter(new FileWriter("userApplications.txt"));
             for (String lineOutput : output) {
                 bw.write(lineOutput);
@@ -116,7 +134,7 @@ public class University {
             return;
         }
     }
-
+    //getter methods
     public String getUniversityName() {
         return universityName;
     }
@@ -124,77 +142,109 @@ public class University {
     public ArrayList<Application> getApplications() {
         return applications;
     }
-
+    //overide to string
     @Override
     public String toString() {
         return String.format("\t%s,%s,%s,%s", universityName, universityWebsite, universityID, universityPassword);
     }
     
+    //parse through valid university names
     private static ArrayList<String> validUniversities = new ArrayList<>();
-
-    public static void loadUniversities()  {
-        try {
-        BufferedReader br = new BufferedReader(new FileReader("globalList.txt"));
-        String line;
-        while ((line = br.readLine()) != null) {
-            validUniversities.add(line.trim().toLowerCase());
+    //quick sort method
+    private static void quickSort(ArrayList<String> list, int low, int high) {
+        if (low < high) {
+            //determine pivot point
+            int pivotIndex = partition(list, low, high);
+            //recursive loop until array is sorted
+            quickSort(list, low, pivotIndex - 1);
+            quickSort(list, pivotIndex + 1, high);
         }
-        br.close();
+    }
+    //seperate lists to determine partitions
+    private static int partition(ArrayList<String> list, int low, int high) {
+        String pivot = list.get(high);
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            String jName = list.get(j).split(",")[0].trim();
+            String pivotName = pivot.split(",")[0].trim();
+            if (jName.compareToIgnoreCase(pivotName) <= 0) {
+                i++;
+                String temp = list.get(i);
+                list.set(i, list.get(j));
+                list.set(j, temp);
+            }
+        }
+        String temp = list.get(i + 1);
+        list.set(i + 1, list.get(high));
+        list.set(high, temp);
+        return i + 1;
+    }
+    //load all uni names to list
+    public static void loadUniversities() {
+        try {
+            //initialize reader
+            BufferedReader br = new BufferedReader(new FileReader("globalList.txt"));
+            String line;
+            //loop through adding all lines
+            while ((line = br.readLine()) != null) {
+                line = line.trim().toLowerCase().replace("\"", "");
+                validUniversities.add(line);
+            }
+            br.close();
+            quickSort(validUniversities, 0, validUniversities.size() - 1);
         } catch (Exception e) {
             System.out.println("globalList.txt not found");
         }
     }
     
+    //use a recursive loop to determine valid university
     public static boolean isValidUniversity(String input) {
-        return isValidUniversityHelper(input, 0, validUniversities.size() - 1);
+        return isValidUniversityHelper(input.trim().toLowerCase().replace("\"", ""), 0, validUniversities.size() - 1);
     }
 
     private static boolean isValidUniversityHelper(String input, int left, int right) {
-        // Base case - not found
-        if (left > right) return false;
-
+        //binary search
+        if (left > right) {
+            return false;
+        }
         int mid = left + (right - left) / 2;
-        int comparison = validUniversities.get(mid).split(",")[0].compareToIgnoreCase(input.trim());
-
-        // Base case - found
+        String midName = validUniversities.get(mid).split(",")[0].trim();
+        int comparison = midName.compareToIgnoreCase(input.trim());
         if (comparison == 0) return true;
-
-        // Recurse into right half
         else if (comparison < 0) return isValidUniversityHelper(input, mid + 1, right);
-
-        // Recurse into left half
         else return isValidUniversityHelper(input, left, mid - 1);
     }
-    
+    //get website version of valid university
     public static String getUniversityWebsite(String input) {
+        String cleanInput = input.trim().toLowerCase().replace("\"", "");
         int left = 0;
         int right = validUniversities.size() - 1;
-
         while (left <= right) {
             int mid = left + (right - left) / 2;
-
-            int comparison = validUniversities.get(mid).split(",")[0].compareToIgnoreCase(input.trim());
-
+            String[] parts = validUniversities.get(mid).split(",");
+            String midName = parts[0].trim();
+            int comparison = midName.compareToIgnoreCase(cleanInput);
             if (comparison == 0) {
-                return validUniversities.get(mid).split(",")[1];
+                return parts[parts.length - 1].trim();
             } else if (comparison < 0) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
             }
         }
-        return null; // not found
-}
-    
+        return null;
+    }
 
 
+    //Application class (dependant on a uni object)
     public class Application {
+        //initialize
         private String programName;
         private boolean suppAppRequired;
         private LocalDate suppAppDate;
         private boolean interviewRequired;
         private LocalDate interviewDate;
-
+        //constructor
         public Application(String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate) {
             this.programName = programName;
             this.suppAppRequired = suppAppRequired;
@@ -202,7 +252,7 @@ public class University {
             this.interviewRequired = interviewRequired;
             this.interviewDate = interviewDate;
         }
-        
+        //file writer formatting
         private String fileFormatOutput() {
             String output = "\t\t" +programName;
             if (suppAppRequired) {
@@ -218,11 +268,11 @@ public class University {
             }
             return output;
         }
-
+        //getter method
         public String getProgramName() {
             return programName;
         }
-
+        //overide for sting output
         @Override
         public String toString() {
             String output =  "\n  University: " + universityName +"\n  Website: " + universityWebsite +"\n  Program: " + programName;

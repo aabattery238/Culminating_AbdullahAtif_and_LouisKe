@@ -4,10 +4,8 @@ userID
 2615390746
 	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
 		Mathematics,true,19/05/2026,true,30/05/2026
-26157183098
-	University of Waterloo,null,svjn,fjksf
-		dfsd,false,,false,
 26161203497
-	University of Waterloo,null,1234,1234
-		Computer Science,true,19/05/2026,true,26/05/2026
-		Mathematics,false,,false,
+	yale university,http://www.yale.edu/,dfvsd,dsfs
+		wqe,true,23/05/2026,true,25/05/2026
+	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
+		Mathematics,true,19/05/2026,true,30/05/2026
