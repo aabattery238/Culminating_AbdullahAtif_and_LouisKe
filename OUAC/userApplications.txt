@@ -1,9 +1,10 @@
 userID
-	UniversityName,universityLocation,universityID,universityPassword
+	UniversityName,universityWebsite,universityID,universityPassword
 		programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate
 2615392649
 	jnvs,dlifn,nkjadn,nkwjenf
 		khsdjbf,true,2/2/2,false,
+
 2615390746
-	Waterloo,Blah,blah,Blah
-		svsv,true,1/1/1,true,1/1/1
+	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
+		Mathematics,true,19/05/2026,true,30/05/2026
