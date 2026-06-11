@@ -9,3 +9,5 @@ userID
 		wqe,true,23/05/2026,true,25/05/2026
 	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
 		Mathematics,true,19/05/2026,true,30/05/2026
+	UniversityName,universityWebsite,universityID,universityPassword
+		programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate

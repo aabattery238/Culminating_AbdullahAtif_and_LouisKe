@@ -18,6 +18,7 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     public LoginGUI() {
         initComponents();
+        //load universities to ensure no further delays
         University.loadUniversities();
     }
 
@@ -250,8 +251,11 @@ public class LoginGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //login requirements
     private boolean loginPassword = false;
     private String usernameLogin;
+    
+    //when login button pressed ensure first user exists then password is correct
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         if (loginPassword) {
             String passwordInput = ErrorCheck.stringParse(txfLoginPassword.getText(), 10, "Password", this);
@@ -264,7 +268,6 @@ public class LoginGUI extends javax.swing.JFrame {
             } else {
                 //Create new remove employees screen
                 loggedInUser.readUserUniversities();
-                University.isValidUniversity("yale university");
                 System.out.print(loggedInUser.getUsername());
                 UniversityApplicationsHomeScreenGUI homeScreenGUI = new UniversityApplicationsHomeScreenGUI(loggedInUser);
                 homeScreenGUI.setVisible(true);
@@ -285,7 +288,8 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         } 
     }//GEN-LAST:event_btnLoginActionPerformed
-
+    
+    //ensure users don't go back and edit username
     private void txfLoginUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfLoginUsernameKeyPressed
         if (loginPassword) {
             txfLoginPassword.setText("");
@@ -294,7 +298,7 @@ public class LoginGUI extends javax.swing.JFrame {
             loginPassword = false;
         }
     }//GEN-LAST:event_txfLoginUsernameKeyPressed
-
+    //sign up and create user
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         String usernameInput = ErrorCheck.stringParse(txfSignUpUsername.getText(), 10, "Username", this);
         if (usernameInput == null) {
