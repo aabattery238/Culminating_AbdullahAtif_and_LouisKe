@@ -1,6 +1,4 @@
 import javax.swing.JOptionPane;
-import java.time.*;
-import java.util.Calendar;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -54,6 +52,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         txfUniID = new components.RoundedTextField();
         txfUniPassword = new components.RoundedTextField();
         btnCreate = new components.RoundedButton();
+        btnBack = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,31 +167,40 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         btnCreate.setForeground(new java.awt.Color(244, 243, 240));
         btnCreate.setText("Create");
         btnCreate.setToolTipText("");
-        btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnCreate.addActionListener(this::btnCreateActionPerformed);
+
+        btnBack.setBorder(null);
+        btnBack.setForeground(new java.awt.Color(244, 243, 240));
+        btnBack.setText("Back");
+        btnBack.setToolTipText("");
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnBack.addActionListener(this::btnBackActionPerformed);
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
         pnlMainInterface.setLayout(pnlMainInterfaceLayout);
         pnlMainInterfaceLayout.setHorizontalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlCreateUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUniID)
-                    .addComponent(lblUniPassword)
-                    .addComponent(lblUniName))
-                .addGap(54, 54, 54)
-                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txfUniID, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                        .addComponent(txfUniPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txfUniName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlCreateUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblUniID)
+                            .addComponent(lblUniPassword)
+                            .addComponent(lblUniName)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(txfUniID, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(txfUniPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txfUniName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlMainInterfaceLayout.setVerticalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +220,9 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
                     .addComponent(lblUniPassword)
                     .addComponent(txfUniPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,7 +291,12 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
+        createApplicationGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();    
+    }//GEN-LAST:event_btnBackActionPerformed
     
     
     /**
@@ -310,6 +325,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private components.RoundedButton btnBack;
     private components.RoundedButton btnCreate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblApplicationRedirect;
