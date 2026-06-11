@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.util.ArrayList;
 /**
  *
  * @author louiske
@@ -21,8 +21,10 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     public UniversityApplicationsHomeScreenGUI(User currentUser) {
         initComponents();
+        System.out.println("OHNO");
         txfApplicationsDisplay.setEditable(false);
         this.currentUser = currentUser;
+        
     }
 
     /**
@@ -131,7 +133,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
         txfApplicationsDisplay.setBackground(new java.awt.Color(244, 243, 240));
-        txfApplicationsDisplay.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfApplicationsDisplay.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txfApplicationsDisplay.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
 
         btnRight.setBorder(null);
@@ -162,7 +164,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                 .addComponent(btnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface3Layout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addGap(0, 113, Short.MAX_VALUE)
                 .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +223,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlBackgroundLayout.setHorizontalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -277,14 +279,15 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    int pos = 0;
+    ArrayList<University.Application> apps;
     private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
         if (txfSearchBar.getText().equals("")){
             txfSearchBar.setText("Search Bar");
             txfSearchBar.setForeground(new java.awt.Color(128,128,128));
         }
     }//GEN-LAST:event_txfSearchBarFocusLost
-
+    
     private void txfSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusGained
         if (txfSearchBar.getText().equals("Search Bar")){
             txfSearchBar.setText("");

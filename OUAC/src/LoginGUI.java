@@ -264,7 +264,7 @@ public class LoginGUI extends javax.swing.JFrame {
             } else {
                 //Create new remove employees screen
                 loggedInUser.readUserUniversities();
-                HomeScreenGUI homeScreenGUI = new HomeScreenGUI(loggedInUser);
+                UniversityApplicationsHomeScreenGUI homeScreenGUI = new UniversityApplicationsHomeScreenGUI(loggedInUser);
                 homeScreenGUI.setVisible(true);
                 //Remove this screen
                 this.dispose();

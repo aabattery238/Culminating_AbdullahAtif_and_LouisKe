@@ -113,14 +113,15 @@ public class User {
             //Initialize File Reader
             BufferedReader br = new BufferedReader(new FileReader("users.txt"));
             //Initialize line String
-            String line = br.readLine();
-            //Loop through file lines
+            String line = br.readLine(); // skip header
+            line = br.readLine();
             while (line != null) {
-                line = br.readLine();
                 if (line.split(",")[1].equals(userInput)) {
+                    br.close();
                     return line;
                 }
-	    }
+                line = br.readLine();
+            }
             br.close();
             return null;
         } catch (Exception e) {
@@ -131,7 +132,12 @@ public class User {
     }
     
     public static User login(String usernameInput, String passwordInput, javax.swing.JFrame gui) {
-        String[] userLine = findUser(usernameInput, gui).split(",", 3);
+        String found = findUser(usernameInput, gui);
+        if (found == null) {
+            JOptionPane.showMessageDialog(gui, "User not found", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+String[] userLine = found.split(",", 3);
         
         if (userLine[2].equals(passwordInput)) {
            return new User(userLine[0], userLine[1], userLine[2]); 

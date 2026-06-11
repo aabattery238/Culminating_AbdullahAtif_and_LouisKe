@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -221,6 +220,19 @@ public class University {
 
         public String getProgramName() {
             return programName;
+        }
+
+        @Override
+        public String toString() {
+            String output = programName;
+            if (suppAppRequired) {
+                output += "\nSupplimentary Application Required\n" +suppAppDate.format(formatter);
+            }
+            
+            if (interviewRequired) {
+                output += "\nInterview Required\n" +suppAppDate.format(formatter);
+            }
+            return output;
         }
         
         
