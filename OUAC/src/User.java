@@ -177,8 +177,8 @@ public class User {
     private String getPassword() {
         return password;
     }  
-    
-    private University booleanSearchUniversity(String searchUniversity) {
+    //search user's university
+    private University binarySearchUniversity(String searchUniversity) {
         //initialize leftmost and right most indexes
         int left = 0;
         int right = totalUniversitiesApplied.size() -1;
@@ -207,27 +207,27 @@ public class User {
 
     // returns university if found, null if not found
     public University getsearchUniversity(String searchUniversity) {
-        University universityFound = booleanSearchUniversity(searchUniversity);
+        University universityFound = binarySearchUniversity(searchUniversity);
         if (universityFound != null) {
             return universityFound;
         } else {
             return null;
         }
     }
-
+    //add to list
     public void addTotalUniversitiesApplied(University newUni) {
         this.totalUniversitiesApplied.add(newUni);
     }
-    
+    //generate application for method
     public void generateApplication(University selectedUniversity, String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate) {
-        University universityFound = booleanSearchUniversity(selectedUniversity.getUniversityName());
+        University universityFound = binarySearchUniversity(selectedUniversity.getUniversityName());
         if (universityFound != null) {
            universityFound.genApplication(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate, this);
         }
     }
     
     
-    
+    //get all user applications
     public ArrayList<University.Application> getApplications() {
         ArrayList<University.Application> userApplications = new ArrayList<University.Application>();
         for (University uniApplied : totalUniversitiesApplied) {
@@ -237,11 +237,11 @@ public class User {
         }
         return userApplications;
     }
-
+    //get total universities
     public ArrayList<University> getTotalUniversitiesApplied() {
         return totalUniversitiesApplied;
     }
-    
+    //read user universities to ensure exisiting user's lists are already saved and resored
     public void readUserUniversities() {
         try {
             ArrayList<University> userUniOutput = new ArrayList<University>();
