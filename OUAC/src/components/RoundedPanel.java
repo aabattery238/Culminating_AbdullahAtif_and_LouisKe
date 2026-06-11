@@ -5,88 +5,9 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 
 public class RoundedPanel extends JPanel {
+    // Default radius for rounded corners
     private int radius = 67;
     private Shape shape;
-    private boolean hoverEnabled = false;
-    private Color hoverBackground;
-    private Color normalBackground;
-    private final java.awt.event.MouseAdapter hoverMouseAdapter = new java.awt.event.MouseAdapter() {
-        @Override
-        public void mouseEntered(java.awt.event.MouseEvent e) {
-            if (hoverEnabled && hoverBackground != null) {
-                normalBackground = getBackground();
-                setBackground(hoverBackground);
-                repaint();
-            }
-        }
-
-        @Override
-        public void mouseExited(java.awt.event.MouseEvent e) {
-            if (hoverEnabled && normalBackground != null) {
-                setBackground(normalBackground);
-                repaint();
-            }
-        }
-    };
-    private static final int DEFAULT_RADIUS = 67;
-
-    public RoundedPanel() {
-        this(DEFAULT_RADIUS);
-    }
-
-    public RoundedPanel(int radius) {
-        this.radius = radius;
-        init();
-    }
-
-    private void init() {
-        setOpaque(false);
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            @Override
-            public void componentResized(java.awt.event.ComponentEvent e) {
-                shape = null;
-            }
-        });
-        addMouseListener(hoverMouseAdapter);
-    }
-
-    public boolean isHoverEnabled() {
-        return hoverEnabled;
-    }
-
-    public void setHoverEnabled(boolean hoverEnabled) {
-        boolean old = this.hoverEnabled;
-        this.hoverEnabled = hoverEnabled;
-        updateHoverListeners();
-        firePropertyChange("hoverEnabled", old, hoverEnabled);
-    }
-
-    public Color getHoverBackground() {
-        return hoverBackground;
-    }
-
-    public void setHoverBackground(Color hoverBackground) {
-        Color old = this.hoverBackground;
-        this.hoverBackground = hoverBackground;
-        firePropertyChange("hoverBackground", old, hoverBackground);
-    }
-
-    @Override
-    protected void addImpl(Component comp, Object constraints, int index) {
-        super.addImpl(comp, constraints, index);
-        if (hoverEnabled) {
-            comp.addMouseListener(hoverMouseAdapter);
-        }
-    }
-
-    private void updateHoverListeners() {
-        for (Component child : getComponents()) {
-            child.removeMouseListener(hoverMouseAdapter);
-            if (hoverEnabled) {
-                child.addMouseListener(hoverMouseAdapter);
-            }
-        }
-    }
 
     @Override
     protected void paintComponent(Graphics g) {

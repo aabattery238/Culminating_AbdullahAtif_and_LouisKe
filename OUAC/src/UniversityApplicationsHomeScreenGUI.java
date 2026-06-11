@@ -155,20 +155,26 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlTextFormat.setBackground(new java.awt.Color(244, 243, 240));
         pnlTextFormat.setForeground(new java.awt.Color(57, 62, 65));
 
-        txpApplication.setEditable(false);
         txpApplication.setBackground(new java.awt.Color(244, 243, 240));
-        txpApplication.setBorder(null);
         txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         txpApplication.setForeground(new java.awt.Color(57, 62, 65));
-        txpApplication.setFocusable(false);
         jScrollPane1.setViewportView(txpApplication);
-        // Remove all visible borders from scroll pane + container panel
+
+        // ===== REMOVE ALL BORDERS =====
         jScrollPane1.setBorder(null);
         jScrollPane1.setViewportBorder(null);
         jScrollPane1.setOpaque(false);
         jScrollPane1.getViewport().setOpaque(false);
 
         pnlTextFormat.setBorder(null);
+
+        // ===== REMOVE TEXT ANIMATION / FOCUS EFFECTS =====
+        txpApplication.setEditable(false);
+        txpApplication.setFocusable(false);
+        txpApplication.setHighlighter(null);
+        txpApplication.setCaretColor(new java.awt.Color(0, 0, 0, 0));
+        txpApplication.setSelectionColor(new java.awt.Color(0, 0, 0, 0));
+        txpApplication.setSelectedTextColor(txpApplication.getForeground());
 
         javax.swing.GroupLayout pnlTextFormatLayout = new javax.swing.GroupLayout(pnlTextFormat);
         pnlTextFormat.setLayout(pnlTextFormatLayout);
@@ -218,17 +224,17 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                     .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlTextFormat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                         .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
-                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
-                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlTextFormat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(25, 25, 25))
         );
 
@@ -260,7 +266,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlBackgroundLayout.setHorizontalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -300,9 +306,9 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName))
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
