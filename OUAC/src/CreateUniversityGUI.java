@@ -45,13 +45,15 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         pnlFooter = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         pnlMainInterface = new components.RoundedPanel();
-        txfUniID = new javax.swing.JTextField();
         lblUniName = new javax.swing.JLabel();
-        btnCreate = new javax.swing.JButton();
         lblUniID = new javax.swing.JLabel();
-        txfUniName = new javax.swing.JTextField();
         lblUniPassword = new javax.swing.JLabel();
-        txfUniPassword = new javax.swing.JTextField();
+        roundedPanel1 = new components.RoundedPanel();
+        lblApplicationRedirect = new javax.swing.JLabel();
+        txfUniName = new components.RoundedTextField();
+        txfUniID = new components.RoundedTextField();
+        txfUniPassword = new components.RoundedTextField();
+        btnCreate = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +62,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         lblName.setBackground(new java.awt.Color(244, 243, 240));
         lblName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 36)); // NOI18N
         lblName.setForeground(new java.awt.Color(57, 62, 65));
-        lblName.setText("GUAC - Create Application");
+        lblName.setText("GUAC");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
@@ -93,7 +95,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         pnlFooterLayout.setHorizontalGroup(
             pnlFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFooterLayout.createSequentialGroup()
-                .addContainerGap(459, Short.MAX_VALUE)
+                .addContainerGap(398, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17))
         );
@@ -108,77 +110,120 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         pnlMainInterface.setBackground(new java.awt.Color(244, 243, 240));
         pnlMainInterface.setMinimumSize(new java.awt.Dimension(713, 755));
 
-        txfUniID.setBackground(new java.awt.Color(244, 243, 240));
-        txfUniID.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        txfUniID.setForeground(new java.awt.Color(57, 62, 65));
-        txfUniID.addActionListener(this::txfUniIDActionPerformed);
-
         lblUniName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         lblUniName.setForeground(new java.awt.Color(57, 62, 65));
         lblUniName.setText("University Name");
 
-        btnCreate.setBackground(new java.awt.Color(88, 123, 127));
-        btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        btnCreate.setForeground(new java.awt.Color(244, 243, 240));
-        btnCreate.setText("Create");
-        btnCreate.addActionListener(this::btnCreateActionPerformed);
-
         lblUniID.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         lblUniID.setForeground(new java.awt.Color(57, 62, 65));
-        lblUniID.setText("University ID");
-
-        txfUniName.setBackground(new java.awt.Color(244, 243, 240));
-        txfUniName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        txfUniName.setForeground(new java.awt.Color(57, 62, 65));
-        txfUniName.addActionListener(this::txfUniNameActionPerformed);
+        lblUniID.setText("Login ID");
 
         lblUniPassword.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         lblUniPassword.setForeground(new java.awt.Color(57, 62, 65));
-        lblUniPassword.setText("University Password");
+        lblUniPassword.setText("Password");
+
+        roundedPanel1.setBackground(new java.awt.Color(88, 123, 127));
+
+        lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
+        lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
+        lblApplicationRedirect.setText("Create University");
+        lblApplicationRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout roundedPanel1Layout = new javax.swing.GroupLayout(roundedPanel1);
+        roundedPanel1.setLayout(roundedPanel1Layout);
+        roundedPanel1Layout.setHorizontalGroup(
+            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblApplicationRedirect)
+                .addGap(200, 200, 200))
+        );
+        roundedPanel1Layout.setVerticalGroup(
+            roundedPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundedPanel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(lblApplicationRedirect)
+                .addGap(17, 17, 17))
+        );
+
+        txfUniName.setBackground(new java.awt.Color(244, 243, 240));
+        txfUniName.setBorder(null);
+        txfUniName.setForeground(new java.awt.Color(57, 62, 65));
+        txfUniName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfUniName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
+
+        txfUniID.setBackground(new java.awt.Color(244, 243, 240));
+        txfUniID.setBorder(null);
+        txfUniID.setForeground(new java.awt.Color(57, 62, 65));
+        txfUniID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfUniID.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
 
         txfUniPassword.setBackground(new java.awt.Color(244, 243, 240));
-        txfUniPassword.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        txfUniPassword.setBorder(null);
         txfUniPassword.setForeground(new java.awt.Color(57, 62, 65));
-        txfUniPassword.addActionListener(this::txfUniPasswordActionPerformed);
+        txfUniPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfUniPassword.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 14)); // NOI18N
+
+        btnCreate.setBorder(null);
+        btnCreate.setForeground(new java.awt.Color(244, 243, 240));
+        btnCreate.setText("Create");
+        btnCreate.setToolTipText("");
+        btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        btnCreate.addActionListener(this::btnCreateActionPerformed);
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
         pnlMainInterface.setLayout(pnlMainInterfaceLayout);
         pnlMainInterfaceLayout.setHorizontalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addContainerGap()
+                .addComponent(roundedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUniID)
                     .addComponent(lblUniPassword)
                     .addComponent(lblUniName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfUniID, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfUniName, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfUniPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCreate)
-                .addGap(307, 307, 307))
+                .addGap(54, 54, 54)
+                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txfUniID, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(txfUniPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txfUniName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMainInterfaceLayout.setVerticalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addContainerGap()
+                .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUniName)
                     .addComponent(txfUniName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(23, 23, 23)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUniID)
                     .addComponent(txfUniID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(22, 22, 22)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUniPassword)
                     .addComponent(txfUniPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(159, 159, 159)
-                .addComponent(btnCreate)
+                .addGap(18, 18, 18)
+                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -189,15 +234,15 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
             .addComponent(pnlFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlBackgroundLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBackgroundLayout.setVerticalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(pnlFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -219,6 +264,21 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblApplicationRedirectMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseEntered
+        pnlRedirect.setBackground(new java.awt.Color(57, 62, 65));
+    }//GEN-LAST:event_lblApplicationRedirectMouseEntered
+
+    private void lblApplicationRedirectMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseExited
+        pnlRedirect.setBackground(new java.awt.Color(88, 123, 127));
+    }//GEN-LAST:event_lblApplicationRedirectMouseExited
+
+    private void lblApplicationRedirectMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMousePressed
+        // Create new university applications home screen
+        UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
+        universityApplicationsHomeScreenGUI.setVisible(true);
+        // Remove this screen
+    }//GEN-LAST:event_lblApplicationRedirectMousePressed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         String uniName = ErrorCheck.trueStringParse(txfUniName.getText(), 40, "University Name", this);
@@ -245,20 +305,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         createApplicationGUI.setVisible(true);
         //Remove this screen
         this.dispose();
-        
     }//GEN-LAST:event_btnCreateActionPerformed
-
-    private void txfUniIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfUniIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfUniIDActionPerformed
-
-    private void txfUniNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfUniNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfUniNameActionPerformed
-
-    private void txfUniPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfUniPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfUniPasswordActionPerformed
 
     
     
@@ -289,8 +336,9 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
+    private components.RoundedButton btnCreate;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblUniID;
     private javax.swing.JLabel lblUniName;
@@ -299,8 +347,9 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFooter;
     private javax.swing.JPanel pnlHeader;
     private components.RoundedPanel pnlMainInterface;
-    private javax.swing.JTextField txfUniID;
-    private javax.swing.JTextField txfUniName;
-    private javax.swing.JTextField txfUniPassword;
+    private components.RoundedPanel roundedPanel1;
+    private components.RoundedTextField txfUniID;
+    private components.RoundedTextField txfUniName;
+    private components.RoundedTextField txfUniPassword;
     // End of variables declaration//GEN-END:variables
 }
