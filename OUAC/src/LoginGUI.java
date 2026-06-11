@@ -266,7 +266,7 @@ public class LoginGUI extends javax.swing.JFrame {
             if (loggedInUser == null) {
                 return;
             } else {
-                //Create new remove employees screen
+                //Create new univeristy application screen
                 loggedInUser.readUserUniversities();
                 System.out.print(loggedInUser.getUsername());
                 UniversityApplicationsHomeScreenGUI homeScreenGUI = new UniversityApplicationsHomeScreenGUI(loggedInUser);
