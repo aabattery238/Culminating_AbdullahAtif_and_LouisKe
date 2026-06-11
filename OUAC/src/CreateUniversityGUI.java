@@ -39,6 +39,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
 
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
+        btnLogOut = new components.RoundedButton();
         pnlBackground = new javax.swing.JPanel();
         pnlFooter = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,6 +64,12 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         lblName.setForeground(new java.awt.Color(57, 62, 65));
         lblName.setText("GUAC");
 
+        btnLogOut.setBorder(null);
+        btnLogOut.setForeground(new java.awt.Color(244, 243, 240));
+        btnLogOut.setText("Log Out");
+        btnLogOut.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnLogOut.addActionListener(this::btnLogOutActionPerformed);
+
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
@@ -70,14 +77,18 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(lblName)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblName)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         pnlBackground.setBackground(new java.awt.Color(57, 62, 65));
@@ -243,7 +254,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(pnlFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,6 +308,14 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         //Remove this screen
         this.dispose();    
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        //Create Log In Screen
+        LoginGUI loginGUI = new LoginGUI();
+        loginGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();
+    }//GEN-LAST:event_btnLogOutActionPerformed
     
     
     /**
@@ -327,6 +346,7 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.RoundedButton btnBack;
     private components.RoundedButton btnCreate;
+    private components.RoundedButton btnLogOut;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblName;
