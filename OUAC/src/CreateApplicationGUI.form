@@ -321,10 +321,10 @@
                               <Component id="slbxUniversities" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnAddUniversity" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txfProgramName" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               <Component id="lblProgramName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txfProgramName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>

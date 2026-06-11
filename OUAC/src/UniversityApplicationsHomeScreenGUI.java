@@ -148,19 +148,22 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         btnLeft.addActionListener(this::btnLeftActionPerformed);
 
         btnAddApplication.setForeground(new java.awt.Color(244, 243, 240));
-        btnAddApplication.setText("Add");
+        btnAddApplication.setText("+");
         btnAddApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         btnAddApplication.addActionListener(this::btnAddApplicationActionPerformed);
 
         pnlTextFormat.setBackground(new java.awt.Color(244, 243, 240));
         pnlTextFormat.setForeground(new java.awt.Color(57, 62, 65));
 
+        txpApplication.setEditable(false);
         txpApplication.setBackground(new java.awt.Color(244, 243, 240));
+        txpApplication.setBorder(null);
         txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         txpApplication.setForeground(new java.awt.Color(57, 62, 65));
+        txpApplication.setFocusable(false);
         jScrollPane1.setViewportView(txpApplication);
 
-        // ===== REMOVE ALL BORDERS =====
+        // ===== FORCE REMOVE ALL BORDERS (TXP APPLICATION CLEAN UI) =====
         jScrollPane1.setBorder(null);
         jScrollPane1.setViewportBorder(null);
         jScrollPane1.setOpaque(false);
@@ -168,13 +171,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
         pnlTextFormat.setBorder(null);
 
-        // ===== REMOVE TEXT ANIMATION / FOCUS EFFECTS =====
-        txpApplication.setEditable(false);
-        txpApplication.setFocusable(false);
-        txpApplication.setHighlighter(null);
-        txpApplication.setCaretColor(new java.awt.Color(0, 0, 0, 0));
-        txpApplication.setSelectionColor(new java.awt.Color(0, 0, 0, 0));
-        txpApplication.setSelectedTextColor(txpApplication.getForeground());
+        txpApplication.setBorder(null);
 
         javax.swing.GroupLayout pnlTextFormatLayout = new javax.swing.GroupLayout(pnlTextFormat);
         pnlTextFormat.setLayout(pnlTextFormatLayout);
@@ -219,7 +216,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,9 +263,9 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlBackgroundLayout.setHorizontalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(16, 16, 16))
         );
         pnlBackgroundLayout.setVerticalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

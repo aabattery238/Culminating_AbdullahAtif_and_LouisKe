@@ -1,3 +1,5 @@
+		Math,true,10/05/2026,false,
+		English,false,,false,
 userID
 	UniversityName,universityWebsite,universityID,universityPassword
 		programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate
@@ -9,3 +11,7 @@ userID
 		wqe,true,23/05/2026,true,25/05/2026
 	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
 		Mathematics,true,19/05/2026,true,30/05/2026
+26157183098
+	Queen's University,http://www.queensu.ca/,123,123
+		Math,false,,false,
+		Health Sci,false,,false,

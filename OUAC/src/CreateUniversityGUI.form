@@ -225,22 +225,22 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnlCreateUniversity" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txfUniName" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="lblUniName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfUniName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txfUniID" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="lblUniID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfUniID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txfUniPassword" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="lblUniPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfUniPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnCreate" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           <Component id="btnBack" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
