@@ -162,6 +162,10 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txpApplication.setEditable(false);
         txpApplication.setBackground(new java.awt.Color(244, 243, 240));
         txpApplication.setBorder(null);
+        txpApplication.setFocusable(false);
+        txpApplication.setHighlighter(null);
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setViewportBorder(null);
         txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         txpApplication.setForeground(new java.awt.Color(57, 62, 65));
         jScrollPane1.setViewportView(txpApplication);
