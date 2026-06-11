@@ -21,9 +21,10 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }
 
     public UniversityApplicationsHomeScreenGUI(User currentUser) {
+        //assign variables
         this.currentUser = currentUser;
         initComponents();
-        
+        //and check if applications exist
         apps = currentUser.getApplications();
         if (!apps.isEmpty()) {
             txpApplication.setText(apps.get(0).toString());
@@ -329,6 +330,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //initialize position var for looping
     int pos = 0;
     private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
         if (txfSearchBar.getText().equals("")){
@@ -365,14 +367,14 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
-
+    
     private void lblApplicationRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseClicked
         //Create new university application screen
         UniversityApplicationsHomeScreenGUI universityScreenGUI = new UniversityApplicationsHomeScreenGUI();
         universityScreenGUI.setVisible(true);
         //Remove this screen
     }//GEN-LAST:event_lblApplicationRedirectMouseClicked
-
+    //add application based on if some already exist
     private void btnAddApplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApplicationActionPerformed
         if (currentUser.getTotalUniversitiesApplied().size() == 0) {
             CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
@@ -387,7 +389,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnAddApplicationActionPerformed
-
+    //go forwards through the apps list until the end and loop around back to the end
     private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
         if (apps.isEmpty()) {
         txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
@@ -396,7 +398,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pos = (pos + 1) % apps.size(); // wraps back to 0 at the end
         txpApplication.setText(apps.get(pos).toString());
     }//GEN-LAST:event_btnRightActionPerformed
-
+    //go backwards through the apps list until the end and loop around back to the end
     private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
         if (apps.isEmpty()) {
         txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
