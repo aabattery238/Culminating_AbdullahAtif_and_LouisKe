@@ -65,6 +65,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         lblInterview = new javax.swing.JLabel();
         calInterview = new com.toedter.calendar.JCalendar();
         btnCreate = new components.RoundedButton();
+        btnBack = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -269,6 +270,12 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnCreate.addActionListener(this::btnCreateActionPerformed);
 
+        btnBack.setBorder(null);
+        btnBack.setForeground(new java.awt.Color(244, 243, 240));
+        btnBack.setText("Back");
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnBack.addActionListener(this::btnBackActionPerformed);
+
         javax.swing.GroupLayout pnlInterviewBackgroundLayout = new javax.swing.GroupLayout(pnlInterviewBackground);
         pnlInterviewBackground.setLayout(pnlInterviewBackgroundLayout);
         pnlInterviewBackgroundLayout.setHorizontalGroup(
@@ -279,15 +286,17 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(cbxInterview))
                     .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(lblInterview))
                     .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addGroup(pnlInterviewBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         pnlInterviewBackgroundLayout.setVerticalGroup(
             pnlInterviewBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,9 +307,11 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
                 .addComponent(lblInterview)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(pnlInterviewBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
         );
 
         lblInterview.setVisible(false);
@@ -450,10 +461,16 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
         universityApplicationsHomeScreenGUI.setVisible(true);
         //Remove this screen
-        this.dispose();        this.dispose();        this.dispose();    }//GEN-LAST:event_btnCreateActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCreateActionPerformed
 
-    
-        
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
+        universityApplicationsHomeScreenGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();    
+    }//GEN-LAST:event_btnBackActionPerformed
+     
     
     /**
      * @param args the command line arguments
@@ -482,6 +499,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.RoundedButton btnAddUniversity;
+    private components.RoundedButton btnBack;
     private components.RoundedButton btnCreate;
     private com.toedter.calendar.JCalendar calInterview;
     private com.toedter.calendar.JCalendar calSuppApp;
