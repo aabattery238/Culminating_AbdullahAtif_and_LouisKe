@@ -334,16 +334,23 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txfSearchBarFocusGained
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String searchUniversity = txfSearchBar.getText();
-        // if search bar is empty or default text, do not search and return
-        if (searchUniversity.equals("") || searchUniversity.equals("Search Bar")) {
+        String searchApplication = txfSearchBar.getText();
+            // if search bar is empty or default text, do not search and return
+        if (searchApplication.equals("") || searchApplication.equals("Search Bar")) {
             return;
         }
-        University universityFound = currentUser.getsearchUniversity(searchUniversity);
-        if (universityFound != null) {
-            txpApplication.setText(universityFound.toString());
-        } else {
-            txpApplication.setText("University Not Found");
+    
+        boolean found = false;
+        for (int i = 0; i < apps.size(); i++) {
+            if (apps.get(i).getProgramName().equalsIgnoreCase(searchApplication)) {
+                pos = i; // adjust pos to found application
+                txpApplication.setText(apps.get(pos).toString());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            txpApplication.setText("Application Not Found");
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
