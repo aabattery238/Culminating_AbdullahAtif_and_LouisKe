@@ -18,26 +18,17 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
      */
     public UniversityApplicationsHomeScreenGUI() {
         initComponents();
-
-        pnlMainInterface.setFocusable(true);
-        java.awt.EventQueue.invokeLater(() -> {
-            pnlMainInterface.requestFocusInWindow();
-        });
     }
 
     public UniversityApplicationsHomeScreenGUI(User currentUser) {
         this.currentUser = currentUser;
         initComponents();
-        pnlMainInterface.setFocusable(true);
-        java.awt.EventQueue.invokeLater(() -> {
-            pnlMainInterface.requestFocusInWindow();
-        });
         
         apps = currentUser.getApplications();
         if (!apps.isEmpty()) {
             txpApplication.setText(apps.get(0).toString());
         } else {
-            txpApplication.setText("No Applications Found");
+            txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
         }
     }
 
@@ -68,7 +59,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txpApplication = new javax.swing.JTextPane();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
-        btnLogOut = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,22 +96,27 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
         lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setText("Applications");
+        lblApplicationRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblApplicationRedirectMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMainInterface2Layout = new javax.swing.GroupLayout(pnlMainInterface2);
         pnlMainInterface2.setLayout(pnlMainInterface2Layout);
         pnlMainInterface2Layout.setHorizontalGroup(
             pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlMainInterface2Layout.createSequentialGroup()
+                .addGap(279, 279, 279)
                 .addComponent(lblApplicationRedirect)
-                .addGap(277, 277, 277))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMainInterface2Layout.setVerticalGroup(
             pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addComponent(lblApplicationRedirect)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pnlMainInterface3.setBackground(new java.awt.Color(204, 204, 204));
@@ -163,25 +158,17 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
         pnlTextFormat.setBackground(new java.awt.Color(244, 243, 240));
         pnlTextFormat.setForeground(new java.awt.Color(57, 62, 65));
-        pnlTextFormat.setBorder(null);
 
         txpApplication.setEditable(false);
         txpApplication.setBackground(new java.awt.Color(244, 243, 240));
         txpApplication.setBorder(null);
-        txpApplication.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        txpApplication.setOpaque(false);
         txpApplication.setFocusable(false);
         txpApplication.setHighlighter(null);
-        txpApplication.setCaretColor(new java.awt.Color(0, 0, 0, 0));
-        txpApplication.setSelectionColor(new java.awt.Color(0, 0, 0, 0));
-        txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        txpApplication.setForeground(new java.awt.Color(57, 62, 65));
-
         jScrollPane1.setBorder(null);
         jScrollPane1.setViewportBorder(null);
-        jScrollPane1.setOpaque(false);
-        jScrollPane1.getViewport().setOpaque(false);
-
+        txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        txpApplication.setForeground(new java.awt.Color(57, 62, 65));
+        txpApplication.setFocusable(false);
         jScrollPane1.setViewportView(txpApplication);
 
         javax.swing.GroupLayout pnlTextFormatLayout = new javax.swing.GroupLayout(pnlTextFormat);
@@ -293,12 +280,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         lblName.setForeground(new java.awt.Color(57, 62, 65));
         lblName.setText("GUAC");
 
-        btnLogOut.setBorder(null);
-        btnLogOut.setForeground(new java.awt.Color(244, 243, 240));
-        btnLogOut.setText("Log Out");
-        btnLogOut.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
-        btnLogOut.addActionListener(this::btnLogOutActionPerformed);
-
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
@@ -306,17 +287,13 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName))
+                .addComponent(lblName)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -377,6 +354,13 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void lblApplicationRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseClicked
+        //Create new university application screen
+        UniversityApplicationsHomeScreenGUI universityScreenGUI = new UniversityApplicationsHomeScreenGUI();
+        universityScreenGUI.setVisible(true);
+        //Remove this screen
+    }//GEN-LAST:event_lblApplicationRedirectMouseClicked
+
     private void btnAddApplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApplicationActionPerformed
         if (currentUser.getTotalUniversitiesApplied().size() == 0) {
             CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
@@ -394,7 +378,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
         if (apps.isEmpty()) {
-        txpApplication.setText("No Applications Found");
+        txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
         return;
         }
         pos = (pos + 1) % apps.size(); // wraps back to 0 at the end
@@ -403,20 +387,12 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
         if (apps.isEmpty()) {
-        txpApplication.setText("No Applications Found");
+        txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
         return;
         }
         pos = (pos - 1 + apps.size()) % apps.size(); // wraps back to end at 0
         txpApplication.setText(apps.get(pos).toString());
     }//GEN-LAST:event_btnLeftActionPerformed
-
-    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        //Create Log In Screen
-        LoginGUI loginGUI = new LoginGUI();
-        loginGUI.setVisible(true);
-        //Remove this screen
-        this.dispose();
-    }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,7 +422,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.RoundedButton btnAddApplication;
     private components.RoundedButton btnLeft;
-    private components.RoundedButton btnLogOut;
     private components.RoundedButton btnRight;
     private components.RoundedButton btnSearch;
     private javax.swing.JScrollBar jScrollBar1;
