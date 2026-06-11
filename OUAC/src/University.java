@@ -20,14 +20,14 @@ import javax.swing.JOptionPane;
 public class University {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private String universityName;
-    private String universityLocation;
+    private String universityWebsite;
     private String universityID;
     private String universityPassword;
     private ArrayList<Application> applications = new ArrayList<Application>();
 
-    public University(String universityName, String universityLocation, String universityID, String universityPassword) {
+    public University(String universityName, String universityWebsite, String universityID, String universityPassword) {
         this.universityName = universityName;
-        this.universityLocation = universityLocation;
+        this.universityWebsite = universityWebsite;
         this.universityID = universityID;
         this.universityPassword = universityPassword;
     }
@@ -39,7 +39,7 @@ public class University {
     public void genApplication(String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate, User user) {
         Application newApp = new Application(programName, suppAppRequired, suppAppDate, interviewRequired, interviewDate);
         applications.add(newApp);
-        int locationInsert = 0;
+        int WebsiteInsert = 0;
         try {
             ArrayList<String> output = new ArrayList<String>();
             BufferedReader brt = new BufferedReader(new FileReader("userApplications.txt"));
@@ -86,7 +86,7 @@ public class University {
                     }
                     case 2 -> {
                         if (uniFound) {
-                            locationInsert = lines;
+                            WebsiteInsert = lines;
                         }
                     }
                 }
@@ -96,13 +96,13 @@ public class University {
             br.close();
             if (!userFound) {
                 output.add(user.getUserID());
-                output.add(String.format("\t%s,%s,%s,%s", this.universityName, this.universityLocation, this.universityID, this.universityPassword));
+                output.add(String.format("\t%s,%s,%s,%s", this.universityName, this.universityWebsite, this.universityID, this.universityPassword));
                 output.add(newApp.fileFormatOutput());
             } else if (userFound && !uniFound) {
-                output.add(lastUni, String.format("\t%s,%s,%s,%s", this.universityName, this.universityLocation, this.universityID, this.universityPassword));
+                output.add(lastUni, String.format("\t%s,%s,%s,%s", this.universityName, this.universityWebsite, this.universityID, this.universityPassword));
                 output.add(lastUni+1, newApp.fileFormatOutput());
             } else {
-                output.add(locationInsert, newApp.fileFormatOutput());
+                output.add(WebsiteInsert, newApp.fileFormatOutput());
             }
             
             BufferedWriter bw = new BufferedWriter(new FileWriter("userApplications.txt"));
@@ -127,7 +127,7 @@ public class University {
 
     @Override
     public String toString() {
-        return String.format("\t%s,%s,%s,%s", universityName, universityLocation, universityID, universityPassword);
+        return String.format("\t%s,%s,%s,%s", universityName, universityWebsite, universityID, universityPassword);
     }
     
     private static ArrayList<String> validUniversities = new ArrayList<>();
@@ -146,7 +146,7 @@ public class University {
         }
     }
     
-    public boolean isValidUniversity(String input) {
+    public static boolean isValidUniversity(String input) {
         int left = 0;
         int right = validUniversities.size() - 1;
 
@@ -166,6 +166,25 @@ public class University {
         return false;
     }
     
+    public static String getUniversityWebsite(String input) {
+        int left = 0;
+        int right = validUniversities.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            int comparison = validUniversities.get(mid).split(",")[0].compareToIgnoreCase(input.trim());
+
+            if (comparison == 0) {
+                return validUniversities.get(mid).split(",")[1];
+            } else if (comparison < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return null; // not found
+}
     
 
 

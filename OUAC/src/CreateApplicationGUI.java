@@ -59,6 +59,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         lblUniversityName = new javax.swing.JLabel();
         slbxUniversities = new javax.swing.JComboBox<>();
         btnCreate = new javax.swing.JButton();
+        btnAddUni = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,50 +160,57 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         btnCreate.setText("Create");
         btnCreate.addActionListener(this::btnCreateActionPerformed);
 
+        btnAddUni.setBackground(new java.awt.Color(88, 123, 127));
+        btnAddUni.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        btnAddUni.setForeground(new java.awt.Color(244, 243, 240));
+        btnAddUni.setText("+");
+        btnAddUni.addActionListener(this::btnAddUniActionPerformed);
+
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
         pnlMainInterface.setLayout(pnlMainInterfaceLayout);
         pnlMainInterfaceLayout.setHorizontalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
                 .addContainerGap(82, Short.MAX_VALUE)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
+                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
+                            .addComponent(btnCreate)
+                            .addGap(301, 301, 301))
+                        .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+                            .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblProgramName)
+                                .addComponent(lblUniversityName, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(48, 48, 48)
+                            .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(slbxUniversities, 0, 360, Short.MAX_VALUE)
+                                .addComponent(txfProgramName))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnAddUni)
+                            .addGap(30, 30, 30)))
+                    .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
                         .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxInterview)
                             .addComponent(cbxSuppApp)
-                            .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbxInterview)
-                                        .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                                            .addGap(23, 23, 23)
-                                            .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lblInterview))))
-                                    .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                                        .addGap(23, 23, 23)
-                                        .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(calSuppApp, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblSuppApp))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMainInterfaceLayout.createSequentialGroup()
+                                        .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblInterview))
                                     .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblProgramName)
-                                        .addComponent(lblUniversityName, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addGap(48, 48, 48)
-                                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(slbxUniversities, 0, 360, Short.MAX_VALUE)
-                                        .addComponent(txfProgramName)))))
-                        .addGap(74, 74, 74))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
-                        .addComponent(btnCreate)
-                        .addGap(301, 301, 301))))
+                                        .addComponent(calSuppApp, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblSuppApp)))))
+                        .addContainerGap())))
         );
         pnlMainInterfaceLayout.setVerticalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUniversityName)
-                    .addComponent(slbxUniversities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(slbxUniversities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddUni))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfProgramName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,6 +275,35 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbxInterviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxInterviewActionPerformed
+        if (cbxInterview.isSelected()) {
+            calInterview.setVisible(true);
+            lblInterview.setVisible(true);
+        } else {
+            calInterview.setVisible(false);
+            lblInterview.setVisible(false);
+        }
+    }//GEN-LAST:event_cbxInterviewActionPerformed
+
+    private void cbxSuppAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSuppAppActionPerformed
+        if (cbxSuppApp.isSelected()) {
+            calSuppApp.setVisible(true);
+            lblSuppApp.setVisible(true);
+        } else {
+            calSuppApp.setVisible(false);
+            lblSuppApp.setVisible(false);
+        }
+    }//GEN-LAST:event_cbxSuppAppActionPerformed
+
+    private void btnAddUniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUniActionPerformed
+        CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
+        createUniversityGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();
+    }//GEN-LAST:event_btnAddUniActionPerformed
+
+    
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         String programName = ErrorCheck.trueStringParse(txfProgramName.getText(), 30, "Program Name", this);
         if (programName == null) {
@@ -293,27 +330,13 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
             interviewDate = null;
         }
         currentUser.getTotalUniversitiesApplied().get(slbxUniversities.getSelectedIndex()).genApplication(programName, suppApp, suppAppDate, interview, interviewDate, currentUser);
+        
+        //Create new screen
+        UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
+        universityApplicationsHomeScreenGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();
     }//GEN-LAST:event_btnCreateActionPerformed
-
-    private void cbxInterviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxInterviewActionPerformed
-        if (cbxInterview.isSelected()) {
-            calInterview.setVisible(true);
-            lblInterview.setVisible(true);
-        } else {
-            calInterview.setVisible(false);
-            lblInterview.setVisible(false);
-        }
-    }//GEN-LAST:event_cbxInterviewActionPerformed
-
-    private void cbxSuppAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSuppAppActionPerformed
-        if (cbxSuppApp.isSelected()) {
-            calSuppApp.setVisible(true);
-            lblSuppApp.setVisible(true);
-        } else {
-            calSuppApp.setVisible(false);
-            lblSuppApp.setVisible(false);
-        }
-    }//GEN-LAST:event_cbxSuppAppActionPerformed
 
     
     
@@ -344,6 +367,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddUni;
     private javax.swing.JButton btnCreate;
     private com.toedter.calendar.JCalendar calInterview;
     private com.toedter.calendar.JCalendar calSuppApp;

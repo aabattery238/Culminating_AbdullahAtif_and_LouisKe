@@ -315,11 +315,18 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lblApplicationRedirectMouseClicked
 
     private void btnAddApplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApplicationActionPerformed
-        //Create new remove employees screen
-        CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
-        createApplicationGUI.setVisible(true);
-        //Remove this screen
-        this.dispose();
+        if (currentUser.getTotalUniversitiesApplied().size() == 0) {
+            CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
+            createUniversityGUI.setVisible(true);
+            //Remove this screen
+            this.dispose();
+        } else {
+            //Create new remove employees screen
+            CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
+            createApplicationGUI.setVisible(true);
+            //Remove this screen
+            this.dispose();
+        }
     }//GEN-LAST:event_btnAddApplicationActionPerformed
 
     /**

@@ -201,6 +201,10 @@ public class User {
             return null;
         }
     }
+
+    public void addTotalUniversitiesApplied(University newUni) {
+        this.totalUniversitiesApplied.add(newUni);
+    }
     
     
     
