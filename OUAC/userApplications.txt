@@ -1,14 +1,4 @@
 userID
 	UniversityName,universityWebsite,universityID,universityPassword
 		programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate
-2615390746
-	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
-		Mathematics,true,19/05/2026,true,30/05/2026
-26161203497
-	yale university,http://www.yale.edu/,dfvsd,dsfs
-		wqe,true,23/05/2026,true,25/05/2026
-	University of Waterloo,http://www.uwaterloo.ca/,abcd,1234
-		Mathematics,true,19/05/2026,true,30/05/2026
-	UniversityName,universityWebsite,universityID,universityPassword
-		programName,suppAppRequired,suppAppDate,interviewRequired,interviewDate
-26157183098
+
