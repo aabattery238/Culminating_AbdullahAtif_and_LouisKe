@@ -218,6 +218,12 @@ public class University {
             }
             return output;
         }
+
+        public String getProgramName() {
+            return programName;
+        }
+        
+        
    
         
     }

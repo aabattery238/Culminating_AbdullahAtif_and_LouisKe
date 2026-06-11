@@ -308,6 +308,15 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         String programName = ErrorCheck.trueStringParse(txfProgramName.getText(), 30, "Program Name", this);
         if (programName == null) {
             return;
+        } else {
+            for (University unis : currentUser.getTotalUniversitiesApplied()) {
+                for (University.Application app : unis.getApplications()) {
+                    if (unis.getUniversityName().equalsIgnoreCase(currentUser.getTotalUniversitiesApplied().get(slbxUniversities.getSelectedIndex()).getUniversityName()) && app.getProgramName().equalsIgnoreCase(programName)) {
+                        JOptionPane.showMessageDialog(this, "Program Already Exists", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                } 
+            }
         }
         boolean suppApp = cbxSuppApp.isSelected();
         LocalDate suppAppDate;

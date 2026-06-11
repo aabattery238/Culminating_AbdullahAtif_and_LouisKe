@@ -224,10 +224,16 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         String uniName = ErrorCheck.trueStringParse(txfUniName.getText(), 40, "University Name", this);
         if (uniName == null) {
             return;
-        }
+        } 
         if (University.isValidUniversity(uniName)) {
             JOptionPane.showMessageDialog(this, "University Not Located", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
+        }
+        for (University unis : currentUser.getTotalUniversitiesApplied()) {
+            if (unis.getUniversityName().equalsIgnoreCase(uniName)) {
+                JOptionPane.showMessageDialog(this, "University Already Exists", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         }
         String uniWebsite = University.getUniversityWebsite(uniName);
         String uniID = ErrorCheck.stringParse(txfUniID.getText(), 20, "University ID", this);
