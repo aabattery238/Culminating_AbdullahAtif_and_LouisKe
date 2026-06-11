@@ -19,12 +19,14 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
     User currentUser;
     public CreateUniversityGUI() {
         initComponents();
+        // Error if there is an issue
         JOptionPane.showMessageDialog(this, "An Error Occured", "ERROR", JOptionPane.ERROR_MESSAGE);
         return;
     }
     
     public CreateUniversityGUI(User loggedInUser) {
         initComponents();
+        // Set current user to logged in user
         currentUser = loggedInUser;
     }
 
@@ -218,19 +220,19 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlCreateUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(45, 45, 45)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUniName)
-                    .addComponent(txfUniName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(txfUniName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUniName))
+                .addGap(18, 18, 18)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUniID)
-                    .addComponent(txfUniID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(txfUniID, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUniID))
+                .addGap(18, 18, 18)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUniPassword)
-                    .addComponent(txfUniPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(txfUniPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUniPassword))
+                .addGap(18, 18, 18)
                 .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -275,24 +277,32 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Create button action
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // Error check all fields
         String uniName = ErrorCheck.trueStringParse(txfUniName.getText(), 40, "University Name", this);
         if (uniName == null) {
             return;
         } 
+        // Check if university exists
         if (!University.isValidUniversity(uniName)) {
             JOptionPane.showMessageDialog(this, "University Not Located", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        // Check if university already exists in user's applied universities
         for (University unis : currentUser.getTotalUniversitiesApplied()) {
             if (unis.getUniversityName().equalsIgnoreCase(uniName)) {
                 JOptionPane.showMessageDialog(this, "University Already Exists", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
+        // Get university website from university name
         String uniWebsite = University.getUniversityWebsite(uniName);
+        // Error check login ID and password
         String uniID = ErrorCheck.stringParse(txfUniID.getText(), 20, "University ID", this);
+        // Check if login ID is valid for the university
         String uniPassword = ErrorCheck.stringParse(txfUniPassword.getText(), 20, "University Password", this);
+        // Check if password is valid for the university
         currentUser.addTotalUniversitiesApplied(new University(uniName, uniWebsite, uniID, uniPassword));
         
         //Create new screen
@@ -302,15 +312,16 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    // Back button action
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        
+        // If user has not applied to any universities, go back to university applications home screen, otherwise go back to create application screen
         if (currentUser.getTotalUniversitiesApplied().size() == 0) {
             UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
             universityApplicationsHomeScreenGUI.setVisible(true);
             //Remove this screen
             this.dispose();
         } else {
-            //Create new remove employees screen
+            //Create new create application screen
             CreateApplicationGUI createApplicationGUI = new CreateApplicationGUI(currentUser);
             createApplicationGUI.setVisible(true);
             //Remove this screen
@@ -318,8 +329,9 @@ public class CreateUniversityGUI extends javax.swing.JFrame {
         }    
     }//GEN-LAST:event_btnBackActionPerformed
 
+    // Log out button action
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        //Create Log In Screen
+        //Create log in Screen
         LoginGUI loginGUI = new LoginGUI();
         loginGUI.setVisible(true);
         //Remove this screen
