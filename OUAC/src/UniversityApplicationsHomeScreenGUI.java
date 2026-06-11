@@ -8,7 +8,8 @@ import java.util.ArrayList;
  * @author louiske
  */
 public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
-    private User currentUser;
+    User currentUser;
+    ArrayList<University.Application> apps;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(UniversityApplicationsHomeScreenGUI.class.getName());
 
@@ -16,15 +17,19 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
      * Creates new form UniversityApplicationsHomeScreenGUI
      */
     public UniversityApplicationsHomeScreenGUI() {
-        this(null);
+        initComponents();
     }
 
     public UniversityApplicationsHomeScreenGUI(User currentUser) {
-        initComponents();
-        System.out.println("OHNO");
-        txfApplicationsDisplay.setEditable(false);
         this.currentUser = currentUser;
+        initComponents();
         
+        apps = currentUser.getApplications();
+        if (!apps.isEmpty()) {
+            txpApplication.setText(apps.get(0).toString());
+        } else {
+            txpApplication.setText("No Applications Found");
+        }
     }
 
     /**
@@ -46,10 +51,12 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlMainInterface3 = new components.RoundedPanel();
         txfSearchBar = new components.RoundedTextField();
         btnSearch = new components.RoundedButton();
-        txfApplicationsDisplay = new components.RoundedTextField();
         btnRight = new components.RoundedButton();
         btnLeft = new components.RoundedButton();
         btnAddApplication = new components.RoundedButton();
+        pnlTextFormat = new components.RoundedPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txpApplication = new javax.swing.JTextPane();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
 
@@ -102,7 +109,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
-                .addGap(230, 230, 230))
+                .addGap(277, 277, 277))
         );
         pnlMainInterface2Layout.setVerticalGroup(
             pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,67 +139,99 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         btnSearch.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
-        txfApplicationsDisplay.setBackground(new java.awt.Color(244, 243, 240));
-        txfApplicationsDisplay.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txfApplicationsDisplay.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-
         btnRight.setBorder(null);
         btnRight.setForeground(new java.awt.Color(244, 243, 240));
         btnRight.setText(">");
         btnRight.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnRight.addActionListener(this::btnRightActionPerformed);
 
         btnLeft.setBorder(null);
         btnLeft.setForeground(new java.awt.Color(244, 243, 240));
         btnLeft.setText("<");
         btnLeft.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnLeft.addActionListener(this::btnLeftActionPerformed);
 
         btnAddApplication.setForeground(new java.awt.Color(244, 243, 240));
         btnAddApplication.setText("Add");
         btnAddApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         btnAddApplication.addActionListener(this::btnAddApplicationActionPerformed);
 
+        pnlTextFormat.setBackground(new java.awt.Color(244, 243, 240));
+        pnlTextFormat.setForeground(new java.awt.Color(57, 62, 65));
+
+        txpApplication.setEditable(false);
+        txpApplication.setBackground(new java.awt.Color(244, 243, 240));
+        txpApplication.setBorder(null);
+        txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        txpApplication.setForeground(new java.awt.Color(57, 62, 65));
+        jScrollPane1.setViewportView(txpApplication);
+
+        javax.swing.GroupLayout pnlTextFormatLayout = new javax.swing.GroupLayout(pnlTextFormat);
+        pnlTextFormat.setLayout(pnlTextFormatLayout);
+        pnlTextFormatLayout.setHorizontalGroup(
+            pnlTextFormatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTextFormatLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+        );
+        pnlTextFormatLayout.setVerticalGroup(
+            pnlTextFormatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTextFormatLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pnlMainInterface3Layout = new javax.swing.GroupLayout(pnlMainInterface3);
         pnlMainInterface3.setLayout(pnlMainInterface3Layout);
         pnlMainInterface3Layout.setHorizontalGroup(
             pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(8, 8, 8)
-                .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface3Layout.createSequentialGroup()
-                .addGap(0, 113, Short.MAX_VALUE)
-                .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlTextFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(0, 113, Short.MAX_VALUE)
+                        .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         pnlMainInterface3Layout.setVerticalGroup(
             pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txfSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
                                 .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
-                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 178, Short.MAX_VALUE))
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(txfApplicationsDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlTextFormat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
@@ -280,7 +319,6 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     int pos = 0;
-    ArrayList<University.Application> apps;
     private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
         if (txfSearchBar.getText().equals("")){
             txfSearchBar.setText("Search Bar");
@@ -303,9 +341,9 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         }
         University universityFound = currentUser.getsearchUniversity(searchUniversity);
         if (universityFound != null) {
-            txfApplicationsDisplay.setText(universityFound.toString());
+            txpApplication.setText(universityFound.toString());
         } else {
-            txfApplicationsDisplay.setText("University Not Found");
+            txpApplication.setText("University Not Found");
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -331,6 +369,24 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnAddApplicationActionPerformed
+
+    private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
+        if (apps.isEmpty()) {
+        txpApplication.setText("No Applications Found");
+        return;
+        }
+        pos = (pos + 1) % apps.size(); // wraps back to 0 at the end
+        txpApplication.setText(apps.get(pos).toString());
+    }//GEN-LAST:event_btnRightActionPerformed
+
+    private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
+        if (apps.isEmpty()) {
+        txpApplication.setText("No Applications Found");
+        return;
+        }
+        pos = (pos - 1 + apps.size()) % apps.size(); // wraps back to end at 0
+        txpApplication.setText(apps.get(pos).toString());
+    }//GEN-LAST:event_btnLeftActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,6 +419,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     private components.RoundedButton btnRight;
     private components.RoundedButton btnSearch;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblFooter;
     private javax.swing.JLabel lblName;
@@ -372,7 +429,8 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     private components.RoundedPanel pnlMainInterface;
     private components.RoundedPanel pnlMainInterface2;
     private components.RoundedPanel pnlMainInterface3;
-    private components.RoundedTextField txfApplicationsDisplay;
+    private components.RoundedPanel pnlTextFormat;
     private components.RoundedTextField txfSearchBar;
+    private javax.swing.JTextPane txpApplication;
     // End of variables declaration//GEN-END:variables
 }

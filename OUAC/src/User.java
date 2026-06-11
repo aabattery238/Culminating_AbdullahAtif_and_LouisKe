@@ -137,7 +137,7 @@ public class User {
             JOptionPane.showMessageDialog(gui, "User not found", "ERROR", JOptionPane.ERROR_MESSAGE);
             return null;
         }
-String[] userLine = found.split(",", 3);
+        String[] userLine = found.split(",", 3);
         
         if (userLine[2].equals(passwordInput)) {
            return new User(userLine[0], userLine[1], userLine[2]); 
@@ -323,7 +323,6 @@ String[] userLine = found.split(",", 3);
 
             br.close();
             totalUniversitiesApplied = userUniOutput;
-            System.out.println(totalUniversitiesApplied.get(0).toString());
         } catch (Exception e) {
             System.out.println(e + " 8");
         }
