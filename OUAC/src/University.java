@@ -17,6 +17,7 @@ import java.io.FileWriter;
  * @author abdullahatif
  */
 public class University {
+    //Initialize University Class
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private String universityName;
     private String universityWebsite;
@@ -146,7 +147,7 @@ public class University {
     }
     
     public static boolean isValidUniversity(String input) {
-    return isValidUniversityHelper(input, 0, validUniversities.size() - 1);
+        return isValidUniversityHelper(input, 0, validUniversities.size() - 1);
     }
 
     private static boolean isValidUniversityHelper(String input, int left, int right) {
