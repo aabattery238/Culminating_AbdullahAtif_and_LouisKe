@@ -372,24 +372,16 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
-<<<<<<< HEAD
-    
-=======
 
     // Application redirect
->>>>>>> 101fbececb2dbeb76f1d2f0e3403b34da6023261
     private void lblApplicationRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseClicked
         //Create new university application screen
         UniversityApplicationsHomeScreenGUI universityScreenGUI = new UniversityApplicationsHomeScreenGUI();
         universityScreenGUI.setVisible(true);
         //Remove this screen
     }//GEN-LAST:event_lblApplicationRedirectMouseClicked
-<<<<<<< HEAD
-    //add application based on if some already exist
-=======
 
     // Add application button action
->>>>>>> 101fbececb2dbeb76f1d2f0e3403b34da6023261
     private void btnAddApplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApplicationActionPerformed
         if (currentUser.getTotalUniversitiesApplied().size() == 0) {
             CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
