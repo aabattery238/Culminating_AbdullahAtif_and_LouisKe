@@ -1,6 +1,6 @@
-import javax.swing.JOptionPane;
 import java.time.*;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -48,18 +48,23 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         pnlFooter = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         pnlMainInterface = new components.RoundedPanel();
-        lblProgramName = new javax.swing.JLabel();
-        txfProgramName = new javax.swing.JTextField();
-        cbxSuppApp = new javax.swing.JCheckBox();
-        calSuppApp = new com.toedter.calendar.JCalendar();
-        lblSuppApp = new javax.swing.JLabel();
-        calInterview = new com.toedter.calendar.JCalendar();
-        lblInterview = new javax.swing.JLabel();
-        cbxInterview = new javax.swing.JCheckBox();
+        pnlCreateApplicationBackground = new components.RoundedPanel();
+        lblApplicationRedirect = new javax.swing.JLabel();
+        pnlNameBackground = new components.RoundedPanel();
         lblUniversityName = new javax.swing.JLabel();
+        lblProgramName = new javax.swing.JLabel();
         slbxUniversities = new javax.swing.JComboBox<>();
-        btnCreate = new javax.swing.JButton();
-        btnAddUni = new javax.swing.JButton();
+        txfProgramName = new components.RoundedTextField();
+        btnAddUniversity = new components.RoundedButton();
+        pnlSupplementaryAppBackground = new components.RoundedPanel();
+        cbxSuppApp = new javax.swing.JCheckBox();
+        lblSuppApp = new javax.swing.JLabel();
+        calSuppApp = new com.toedter.calendar.JCalendar();
+        pnlInterviewBackground = new components.RoundedPanel();
+        cbxInterview = new javax.swing.JCheckBox();
+        lblInterview = new javax.swing.JLabel();
+        calInterview = new com.toedter.calendar.JCalendar();
+        btnCreate = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,7 +106,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         pnlFooterLayout.setHorizontalGroup(
             pnlFooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFooterLayout.createSequentialGroup()
-                .addContainerGap(459, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17))
         );
@@ -116,145 +121,238 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         pnlMainInterface.setBackground(new java.awt.Color(244, 243, 240));
         pnlMainInterface.setMinimumSize(new java.awt.Dimension(713, 755));
 
-        lblProgramName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        pnlCreateApplicationBackground.setBackground(new java.awt.Color(88, 123, 127));
+
+        lblApplicationRedirect.setBackground(new java.awt.Color(244, 243, 240));
+        lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
+        lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
+        lblApplicationRedirect.setText("Create Application");
+
+        javax.swing.GroupLayout pnlCreateApplicationBackgroundLayout = new javax.swing.GroupLayout(pnlCreateApplicationBackground);
+        pnlCreateApplicationBackground.setLayout(pnlCreateApplicationBackgroundLayout);
+        pnlCreateApplicationBackgroundLayout.setHorizontalGroup(
+            pnlCreateApplicationBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCreateApplicationBackgroundLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblApplicationRedirect)
+                .addGap(194, 194, 194))
+        );
+        pnlCreateApplicationBackgroundLayout.setVerticalGroup(
+            pnlCreateApplicationBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCreateApplicationBackgroundLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(lblApplicationRedirect)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        pnlNameBackground.setBackground(new java.awt.Color(204, 204, 204));
+
+        lblUniversityName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        lblUniversityName.setForeground(new java.awt.Color(57, 62, 65));
+        lblUniversityName.setText("University Name");
+
+        lblProgramName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         lblProgramName.setForeground(new java.awt.Color(57, 62, 65));
         lblProgramName.setText("Program Name");
 
+        slbxUniversities.setBackground(new java.awt.Color(244, 243, 240));
+        slbxUniversities.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 16)); // NOI18N
+        slbxUniversities.setBounds(new java.awt.Rectangle(60, 60, 60, 60));
+
         txfProgramName.setBackground(new java.awt.Color(244, 243, 240));
+        txfProgramName.setBorder(null);
+        txfProgramName.setForeground(new java.awt.Color(57, 62, 65));
+        txfProgramName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txfProgramName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
 
-        cbxSuppApp.setBackground(new java.awt.Color(244, 243, 240));
-        cbxSuppApp.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 16)); // NOI18N
+        btnAddUniversity.setBorder(null);
+        btnAddUniversity.setForeground(new java.awt.Color(244, 243, 240));
+        btnAddUniversity.setText("+");
+        btnAddUniversity.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnAddUniversity.addActionListener(this::btnAddUniversityActionPerformed);
+
+        javax.swing.GroupLayout pnlNameBackgroundLayout = new javax.swing.GroupLayout(pnlNameBackground);
+        pnlNameBackground.setLayout(pnlNameBackgroundLayout);
+        pnlNameBackgroundLayout.setHorizontalGroup(
+            pnlNameBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNameBackgroundLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(pnlNameBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUniversityName)
+                    .addComponent(lblProgramName))
+                .addGap(46, 46, 46)
+                .addGroup(pnlNameBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(slbxUniversities, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txfProgramName, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnAddUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        pnlNameBackgroundLayout.setVerticalGroup(
+            pnlNameBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNameBackgroundLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pnlNameBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUniversityName)
+                    .addComponent(slbxUniversities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlNameBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProgramName)
+                    .addComponent(txfProgramName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        pnlSupplementaryAppBackground.setBackground(new java.awt.Color(204, 204, 204));
+
+        cbxSuppApp.setBackground(new java.awt.Color(204, 204, 204));
+        cbxSuppApp.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         cbxSuppApp.setForeground(new java.awt.Color(57, 62, 65));
         cbxSuppApp.setText("Supplimentary Application");
         cbxSuppApp.addActionListener(this::cbxSuppAppActionPerformed);
 
-        calSuppApp.setWeekOfYearVisible(false);
-
         lblSuppApp.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 16)); // NOI18N
         lblSuppApp.setForeground(new java.awt.Color(57, 62, 65));
-        lblSuppApp.setText("Supplimentary Application Due Date");
+        lblSuppApp.setText("Supplementary Application Due Date");
 
-        calInterview.setWeekOfYearVisible(false);
+        calSuppApp.setWeekOfYearVisible(false);
+
+        javax.swing.GroupLayout pnlSupplementaryAppBackgroundLayout = new javax.swing.GroupLayout(pnlSupplementaryAppBackground);
+        pnlSupplementaryAppBackground.setLayout(pnlSupplementaryAppBackgroundLayout);
+        pnlSupplementaryAppBackgroundLayout.setHorizontalGroup(
+            pnlSupplementaryAppBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSupplementaryAppBackgroundLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(cbxSuppApp)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSupplementaryAppBackgroundLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblSuppApp)
+                .addGap(162, 162, 162))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSupplementaryAppBackgroundLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(calSuppApp, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(121, 121, 121))
+        );
+        pnlSupplementaryAppBackgroundLayout.setVerticalGroup(
+            pnlSupplementaryAppBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSupplementaryAppBackgroundLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(cbxSuppApp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSuppApp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(calSuppApp, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        lblSuppApp.setVisible(false);
+        calSuppApp.setVisible(false);
+
+        pnlInterviewBackground.setBackground(new java.awt.Color(204, 204, 204));
+
+        cbxInterview.setBackground(new java.awt.Color(204, 204, 204));
+        cbxInterview.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        cbxInterview.setForeground(new java.awt.Color(57, 62, 65));
+        cbxInterview.setText("Interview");
+        cbxInterview.addActionListener(this::cbxInterviewActionPerformed);
 
         lblInterview.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 16)); // NOI18N
         lblInterview.setForeground(new java.awt.Color(57, 62, 65));
         lblInterview.setText("Interview Due Date");
 
-        cbxInterview.setBackground(new java.awt.Color(244, 243, 240));
-        cbxInterview.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 16)); // NOI18N
-        cbxInterview.setForeground(new java.awt.Color(57, 62, 65));
-        cbxInterview.setText("Interview");
-        cbxInterview.addActionListener(this::cbxInterviewActionPerformed);
+        calInterview.setWeekOfYearVisible(false);
 
-        lblUniversityName.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        lblUniversityName.setForeground(new java.awt.Color(57, 62, 65));
-        lblUniversityName.setText("University Name");
-
-        slbxUniversities.setBackground(new java.awt.Color(244, 243, 240));
-        slbxUniversities.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 16)); // NOI18N
-
-        btnCreate.setBackground(new java.awt.Color(88, 123, 127));
-        btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        btnCreate.setBorder(null);
         btnCreate.setForeground(new java.awt.Color(244, 243, 240));
         btnCreate.setText("Create");
+        btnCreate.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         btnCreate.addActionListener(this::btnCreateActionPerformed);
 
-        btnAddUni.setBackground(new java.awt.Color(88, 123, 127));
-        btnAddUni.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        btnAddUni.setForeground(new java.awt.Color(244, 243, 240));
-        btnAddUni.setText("+");
-        btnAddUni.addActionListener(this::btnAddUniActionPerformed);
+        javax.swing.GroupLayout pnlInterviewBackgroundLayout = new javax.swing.GroupLayout(pnlInterviewBackground);
+        pnlInterviewBackground.setLayout(pnlInterviewBackgroundLayout);
+        pnlInterviewBackgroundLayout.setHorizontalGroup(
+            pnlInterviewBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                .addGroup(pnlInterviewBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(cbxInterview))
+                    .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(lblInterview))
+                    .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlInterviewBackgroundLayout.setVerticalGroup(
+            pnlInterviewBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInterviewBackgroundLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(cbxInterview)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInterview)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        lblInterview.setVisible(false);
+        calInterview.setVisible(false);
 
         javax.swing.GroupLayout pnlMainInterfaceLayout = new javax.swing.GroupLayout(pnlMainInterface);
         pnlMainInterface.setLayout(pnlMainInterfaceLayout);
         pnlMainInterfaceLayout.setHorizontalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterfaceLayout.createSequentialGroup()
-                            .addComponent(btnCreate)
-                            .addGap(301, 301, 301))
-                        .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                            .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblProgramName)
-                                .addComponent(lblUniversityName, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGap(48, 48, 48)
-                            .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(slbxUniversities, 0, 360, Short.MAX_VALUE)
-                                .addComponent(txfProgramName))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnAddUni)
-                            .addGap(30, 30, 30)))
-                    .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                        .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxInterview)
-                            .addComponent(cbxSuppApp)
-                            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblInterview))
-                                    .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(calSuppApp, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblSuppApp)))))
-                        .addContainerGap())))
+            .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pnlInterviewBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlNameBackground, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlCreateApplicationBackground, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlSupplementaryAppBackground, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMainInterfaceLayout.setVerticalGroup(
             pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterfaceLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUniversityName)
-                    .addComponent(slbxUniversities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddUni))
+                .addContainerGap()
+                .addComponent(pnlCreateApplicationBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(pnlNameBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlMainInterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfProgramName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProgramName))
+                .addComponent(pnlSupplementaryAppBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbxSuppApp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSuppApp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(calSuppApp, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(cbxInterview)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInterview)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(calInterview, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCreate)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(pnlInterviewBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        calSuppApp.setVisible(false);
-        lblSuppApp.setVisible(false);
-        calInterview.setVisible(false);
-        lblInterview.setVisible(false);
 
         javax.swing.GroupLayout pnlBackgroundLayout = new javax.swing.GroupLayout(pnlBackground);
         pnlBackground.setLayout(pnlBackgroundLayout);
         pnlBackgroundLayout.setHorizontalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlBackgroundLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlFooter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnlBackgroundLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         pnlBackgroundLayout.setVerticalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(pnlFooter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(968, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,7 +360,9 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,16 +375,6 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbxInterviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxInterviewActionPerformed
-        if (cbxInterview.isSelected()) {
-            calInterview.setVisible(true);
-            lblInterview.setVisible(true);
-        } else {
-            calInterview.setVisible(false);
-            lblInterview.setVisible(false);
-        }
-    }//GEN-LAST:event_cbxInterviewActionPerformed
-
     private void cbxSuppAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSuppAppActionPerformed
         if (cbxSuppApp.isSelected()) {
             calSuppApp.setVisible(true);
@@ -293,17 +383,33 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
             calSuppApp.setVisible(false);
             lblSuppApp.setVisible(false);
         }
+
+        pnlMainInterface.revalidate();
+        pnlMainInterface.repaint();
+        pack();
     }//GEN-LAST:event_cbxSuppAppActionPerformed
 
-    private void btnAddUniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUniActionPerformed
+    private void btnAddUniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUniversityActionPerformed
         CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
         createUniversityGUI.setVisible(true);
         //Remove this screen
         this.dispose();
-    }//GEN-LAST:event_btnAddUniActionPerformed
+    }//GEN-LAST:event_btnAddUniversityActionPerformed
 
-    
-    
+    private void cbxInterviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxInterviewActionPerformed
+        if (cbxInterview.isSelected()) {
+            calInterview.setVisible(true);
+            lblInterview.setVisible(true);
+        } else {
+            calInterview.setVisible(false);
+            lblInterview.setVisible(false);
+        }
+
+        pnlMainInterface.revalidate();
+        pnlMainInterface.repaint();
+        pack();
+    }//GEN-LAST:event_cbxInterviewActionPerformed
+
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         String programName = ErrorCheck.trueStringParse(txfProgramName.getText(), 30, "Program Name", this);
         if (programName == null) {
@@ -315,7 +421,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Program Already Exists", "ERROR", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
-                } 
+                }
             }
         }
         boolean suppApp = cbxSuppApp.isSelected();
@@ -339,16 +445,15 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
             interviewDate = null;
         }
         currentUser.getTotalUniversitiesApplied().get(slbxUniversities.getSelectedIndex()).genApplication(programName, suppApp, suppAppDate, interview, interviewDate, currentUser);
-        
+
         //Create new screen
         UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
         universityApplicationsHomeScreenGUI.setVisible(true);
         //Remove this screen
-        this.dispose();
-    }//GEN-LAST:event_btnCreateActionPerformed
+        this.dispose();        this.dispose();        this.dispose();    }//GEN-LAST:event_btnCreateActionPerformed
 
     
-    
+        
     
     /**
      * @param args the command line arguments
@@ -376,23 +481,28 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddUni;
-    private javax.swing.JButton btnCreate;
+    private components.RoundedButton btnAddUniversity;
+    private components.RoundedButton btnCreate;
     private com.toedter.calendar.JCalendar calInterview;
     private com.toedter.calendar.JCalendar calSuppApp;
     private javax.swing.JCheckBox cbxInterview;
     private javax.swing.JCheckBox cbxSuppApp;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblApplicationRedirect;
     private javax.swing.JLabel lblInterview;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblProgramName;
     private javax.swing.JLabel lblSuppApp;
     private javax.swing.JLabel lblUniversityName;
     private javax.swing.JPanel pnlBackground;
+    private components.RoundedPanel pnlCreateApplicationBackground;
     private javax.swing.JPanel pnlFooter;
     private javax.swing.JPanel pnlHeader;
+    private components.RoundedPanel pnlInterviewBackground;
     private components.RoundedPanel pnlMainInterface;
+    private components.RoundedPanel pnlNameBackground;
+    private components.RoundedPanel pnlSupplementaryAppBackground;
     private javax.swing.JComboBox<String> slbxUniversities;
-    private javax.swing.JTextField txfProgramName;
+    private components.RoundedTextField txfProgramName;
     // End of variables declaration//GEN-END:variables
 }
