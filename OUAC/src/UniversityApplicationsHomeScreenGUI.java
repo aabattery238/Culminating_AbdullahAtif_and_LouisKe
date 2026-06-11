@@ -59,6 +59,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txpApplication = new javax.swing.JTextPane();
         pnlHeader = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
+        btnLogOut = new components.RoundedButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,27 +97,22 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         lblApplicationRedirect.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 24)); // NOI18N
         lblApplicationRedirect.setForeground(new java.awt.Color(244, 243, 240));
         lblApplicationRedirect.setText("Applications");
-        lblApplicationRedirect.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblApplicationRedirectMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlMainInterface2Layout = new javax.swing.GroupLayout(pnlMainInterface2);
         pnlMainInterface2.setLayout(pnlMainInterface2Layout);
         pnlMainInterface2Layout.setHorizontalGroup(
             pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainInterface2Layout.createSequentialGroup()
-                .addGap(279, 279, 279)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainInterface2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblApplicationRedirect)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(277, 277, 277))
         );
         pnlMainInterface2Layout.setVerticalGroup(
             pnlMainInterface2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainInterface2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addComponent(lblApplicationRedirect)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pnlMainInterface3.setBackground(new java.awt.Color(204, 204, 204));
@@ -159,17 +155,26 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlTextFormat.setBackground(new java.awt.Color(244, 243, 240));
         pnlTextFormat.setForeground(new java.awt.Color(57, 62, 65));
 
-        txpApplication.setEditable(false);
         txpApplication.setBackground(new java.awt.Color(244, 243, 240));
-        txpApplication.setBorder(null);
-        txpApplication.setFocusable(false);
-        txpApplication.setHighlighter(null);
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setViewportBorder(null);
         txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         txpApplication.setForeground(new java.awt.Color(57, 62, 65));
-        txpApplication.setFocusable(false);
         jScrollPane1.setViewportView(txpApplication);
+
+        // ===== REMOVE ALL BORDERS =====
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setViewportBorder(null);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
+
+        pnlTextFormat.setBorder(null);
+
+        // ===== REMOVE TEXT ANIMATION / FOCUS EFFECTS =====
+        txpApplication.setEditable(false);
+        txpApplication.setFocusable(false);
+        txpApplication.setHighlighter(null);
+        txpApplication.setCaretColor(new java.awt.Color(0, 0, 0, 0));
+        txpApplication.setSelectionColor(new java.awt.Color(0, 0, 0, 0));
+        txpApplication.setSelectedTextColor(txpApplication.getForeground());
 
         javax.swing.GroupLayout pnlTextFormatLayout = new javax.swing.GroupLayout(pnlTextFormat);
         pnlTextFormat.setLayout(pnlTextFormatLayout);
@@ -219,17 +224,17 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
                     .addComponent(btnAddApplication, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMainInterface3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlTextFormat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                         .addGroup(pnlMainInterface3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
-                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlMainInterface3Layout.createSequentialGroup()
                                 .addGap(155, 155, 155)
-                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlMainInterface3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlTextFormat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(25, 25, 25))
         );
 
@@ -261,7 +266,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         pnlBackgroundLayout.setHorizontalGroup(
             pnlBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBackgroundLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(pnlMainInterface, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -280,6 +285,12 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         lblName.setForeground(new java.awt.Color(57, 62, 65));
         lblName.setText("GUAC");
 
+        btnLogOut.setBorder(null);
+        btnLogOut.setForeground(new java.awt.Color(244, 243, 240));
+        btnLogOut.setText("Log Out");
+        btnLogOut.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        btnLogOut.addActionListener(this::btnLogOutActionPerformed);
+
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
@@ -287,13 +298,17 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblName)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lblName)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -394,6 +409,14 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txpApplication.setText(apps.get(pos).toString());
     }//GEN-LAST:event_btnLeftActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        //Create Log In Screen
+        LoginGUI loginGUI = new LoginGUI();
+        loginGUI.setVisible(true);
+        //Remove this screen
+        this.dispose();
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -422,6 +445,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.RoundedButton btnAddApplication;
     private components.RoundedButton btnLeft;
+    private components.RoundedButton btnLogOut;
     private components.RoundedButton btnRight;
     private components.RoundedButton btnSearch;
     private javax.swing.JScrollBar jScrollBar1;
