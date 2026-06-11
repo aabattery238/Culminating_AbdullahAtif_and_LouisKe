@@ -28,7 +28,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         if (!apps.isEmpty()) {
             txpApplication.setText(apps.get(0).toString());
         } else {
-            txpApplication.setText("No Applications Found");
+            txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
         }
     }
 
@@ -164,6 +164,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txpApplication.setBorder(null);
         txpApplication.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         txpApplication.setForeground(new java.awt.Color(57, 62, 65));
+        txpApplication.setFocusable(false);
         jScrollPane1.setViewportView(txpApplication);
 
         javax.swing.GroupLayout pnlTextFormatLayout = new javax.swing.GroupLayout(pnlTextFormat);
@@ -379,7 +380,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
         if (apps.isEmpty()) {
-        txpApplication.setText("No Applications Found");
+        txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
         return;
         }
         pos = (pos + 1) % apps.size(); // wraps back to 0 at the end
@@ -388,7 +389,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
 
     private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
         if (apps.isEmpty()) {
-        txpApplication.setText("No Applications Found");
+        txpApplication.setText("\n  No Applications Found.\n  Click the + to get Started!");
         return;
         }
         pos = (pos - 1 + apps.size()) % apps.size(); // wraps back to end at 0

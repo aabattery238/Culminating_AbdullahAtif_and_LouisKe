@@ -295,7 +295,7 @@ public class LoginGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txfLoginUsernameKeyPressed
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        String usernameInput = ErrorCheck.trueStringParse(txfSignUpUsername.getText(), 10, "Username", this);
+        String usernameInput = ErrorCheck.stringParse(txfSignUpUsername.getText(), 10, "Username", this);
         if (usernameInput == null) {
             return;
         }

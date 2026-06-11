@@ -137,8 +137,7 @@ public class University {
         BufferedReader br = new BufferedReader(new FileReader("globalList.txt"));
         String line;
         while ((line = br.readLine()) != null) {
-            String name = line.split(",")[0].trim().toLowerCase();
-            validUniversities.add(name);
+            validUniversities.add(line.trim().toLowerCase());
         }
         br.close();
         } catch (Exception e) {
@@ -155,7 +154,7 @@ public class University {
         if (left > right) return false;
 
         int mid = left + (right - left) / 2;
-        int comparison = validUniversities.get(mid).compareToIgnoreCase(input.trim());
+        int comparison = validUniversities.get(mid).split(",")[0].compareToIgnoreCase(input.trim());
 
         // Base case - found
         if (comparison == 0) return true;
@@ -226,7 +225,7 @@ public class University {
 
         @Override
         public String toString() {
-            String output =  "\n  University: " + universityName +"\n  Program: " + programName;
+            String output =  "\n  University: " + universityName +"\n  Website: " + universityWebsite +"\n  Program: " + programName;
             if (suppAppRequired) {
                 output += "\n\tSupplementary App Due: " + suppAppDate.format(formatter);
             }
