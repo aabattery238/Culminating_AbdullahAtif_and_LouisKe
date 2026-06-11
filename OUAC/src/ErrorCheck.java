@@ -118,7 +118,7 @@ public class ErrorCheck {
             return null;
         } else if (userInput.length() <= maxLength) {
             //ensure under max length
-            String[] specialChars = {"!", "@", "#", "$", "%", "^", "&", "*", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", ",", "<", ">", "/", "?"};
+            String[] specialChars = {"!", "@", "#", "$", "%", "^", "&", "*", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", ",", "<", ">", "/", "?", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
             for (String special : specialChars) {
                 if (userInput.contains(special)) {
                     JOptionPane.showMessageDialog(gui, textFieldName +"Cannot Contain Special Characters", "ERROR", JOptionPane.ERROR_MESSAGE);

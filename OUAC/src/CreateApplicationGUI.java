@@ -28,6 +28,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
     public CreateApplicationGUI(User loggedInUser) {
         initComponents();
         currentUser = loggedInUser;
+        //initialize list of universites
         for (University unis : currentUser.getTotalUniversitiesApplied()) {
             slbxUniversities.addItem(unis.getUniversityName());
         }
@@ -403,7 +404,8 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //show calandar based on which options are selected
+    //SuppApp selected show calandar
     private void cbxSuppAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSuppAppActionPerformed
         if (cbxSuppApp.isSelected()) {
             calSuppApp.setVisible(true);
@@ -412,19 +414,20 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
             calSuppApp.setVisible(false);
             lblSuppApp.setVisible(false);
         }
-
+        //ensure calandar fits in frame
         pnlMainInterface.revalidate();
         pnlMainInterface.repaint();
         pack();
     }//GEN-LAST:event_cbxSuppAppActionPerformed
-
+    //add university button
+    //create instance of add uni gui
     private void btnAddUniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUniversityActionPerformed
         CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
         createUniversityGUI.setVisible(true);
         //Remove this screen
         this.dispose();
     }//GEN-LAST:event_btnAddUniversityActionPerformed
-
+    //Interview selected show calandar
     private void cbxInterviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxInterviewActionPerformed
         if (cbxInterview.isSelected()) {
             calInterview.setVisible(true);
@@ -433,17 +436,19 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
             calInterview.setVisible(false);
             lblInterview.setVisible(false);
         }
-
+        //ensure calandar fits in frame
         pnlMainInterface.revalidate();
         pnlMainInterface.repaint();
         pack();
     }//GEN-LAST:event_cbxInterviewActionPerformed
-
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        //check program name and ensure validity
         String programName = ErrorCheck.trueStringParse(txfProgramName.getText(), 30, "Program Name", this);
         if (programName == null) {
-            return;
+            return; //if not exit
         } else {
+            //ensure program does not already exist (but can under a diff uni
             for (University unis : currentUser.getTotalUniversitiesApplied()) {
                 for (University.Application app : unis.getApplications()) {
                     if (unis.getUniversityName().equalsIgnoreCase(currentUser.getTotalUniversitiesApplied().get(slbxUniversities.getSelectedIndex()).getUniversityName()) && app.getProgramName().equalsIgnoreCase(programName)) {
@@ -453,8 +458,11 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
                 }
             }
         }
+        //get selected values
         boolean suppApp = cbxSuppApp.isSelected();
+        //create local date var
         LocalDate suppAppDate;
+        //populate values
         if (suppApp) {
             int year = calSuppApp.getCalendar().get(Calendar.YEAR);
             int month = calSuppApp.getCalendar().get(Calendar.MONTH);
@@ -463,8 +471,10 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         } else {
             suppAppDate = null;
         }
+        //create local date var
         boolean interview = cbxInterview.isSelected();
         LocalDate interviewDate;
+        //populate values
         if (interview) {
             int year = calInterview.getCalendar().get(Calendar.YEAR);
             int month = calInterview.getCalendar().get(Calendar.MONTH);
@@ -473,6 +483,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         } else {
             interviewDate = null;
         }
+        //add application to list and store in files
         currentUser.getTotalUniversitiesApplied().get(slbxUniversities.getSelectedIndex()).genApplication(programName, suppApp, suppAppDate, interview, interviewDate, currentUser);
 
         //Create new screen
@@ -481,7 +492,7 @@ public class CreateApplicationGUI extends javax.swing.JFrame {
         //Remove this screen
         this.dispose();
     }//GEN-LAST:event_btnCreateActionPerformed
-
+    //return home
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         UniversityApplicationsHomeScreenGUI universityApplicationsHomeScreenGUI = new UniversityApplicationsHomeScreenGUI(currentUser);
         universityApplicationsHomeScreenGUI.setVisible(true);
