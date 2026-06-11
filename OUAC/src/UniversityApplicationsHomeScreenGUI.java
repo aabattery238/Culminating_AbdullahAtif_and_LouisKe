@@ -332,20 +332,25 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //initialize position var for looping
     int pos = 0;
+    // Search bar focus lost and gained action
     private void txfSearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusLost
         if (txfSearchBar.getText().equals("")){
+            // If search bar is empty, set to default text
             txfSearchBar.setText("Search Bar");
+            // Set text color to gray
             txfSearchBar.setForeground(new java.awt.Color(128,128,128));
         }
     }//GEN-LAST:event_txfSearchBarFocusLost
     
     private void txfSearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfSearchBarFocusGained
         if (txfSearchBar.getText().equals("Search Bar")){
+            // If search bar is default text, clear it and set text color to black
             txfSearchBar.setText("");
             txfSearchBar.setForeground(new java.awt.Color(57,62,65));
         }
     }//GEN-LAST:event_txfSearchBarFocusGained
 
+    // Search button action
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String searchApplication = txfSearchBar.getText();
             // if search bar is empty or default text, do not search and return
@@ -367,14 +372,24 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
+<<<<<<< HEAD
     
+=======
+
+    // Application redirect
+>>>>>>> 101fbececb2dbeb76f1d2f0e3403b34da6023261
     private void lblApplicationRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplicationRedirectMouseClicked
         //Create new university application screen
         UniversityApplicationsHomeScreenGUI universityScreenGUI = new UniversityApplicationsHomeScreenGUI();
         universityScreenGUI.setVisible(true);
         //Remove this screen
     }//GEN-LAST:event_lblApplicationRedirectMouseClicked
+<<<<<<< HEAD
     //add application based on if some already exist
+=======
+
+    // Add application button action
+>>>>>>> 101fbececb2dbeb76f1d2f0e3403b34da6023261
     private void btnAddApplicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddApplicationActionPerformed
         if (currentUser.getTotalUniversitiesApplied().size() == 0) {
             CreateUniversityGUI createUniversityGUI = new CreateUniversityGUI(currentUser);
@@ -408,6 +423,7 @@ public class UniversityApplicationsHomeScreenGUI extends javax.swing.JFrame {
         txpApplication.setText(apps.get(pos).toString());
     }//GEN-LAST:event_btnLeftActionPerformed
 
+    // Log out button action
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         //Create Log In Screen
         LoginGUI loginGUI = new LoginGUI();
