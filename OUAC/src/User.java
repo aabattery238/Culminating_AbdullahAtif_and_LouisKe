@@ -212,8 +212,6 @@ public class User {
         this.totalUniversitiesApplied.add(newUni);
     }
     
-    
-    
     public void generateApplication(University selectedUniversity, String programName, boolean suppAppRequired, LocalDate suppAppDate, boolean interviewRequired, LocalDate interviewDate) {
         University universityFound = booleanSearchUniversity(selectedUniversity.getUniversityName());
         if (universityFound != null) {
